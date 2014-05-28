@@ -1,0 +1,8 @@
+<div class="container">
+  <%= render partial: "shared/header_admin", locals: {:title => 'Editing Resume Entry'} %>
+
+  <%= render 'form' %>
+
+  <%= link_to 'Show', @resume_entry %> |
+  <%= link_to 'Back', resume_entries_path %>
+</div>

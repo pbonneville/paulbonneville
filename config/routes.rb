@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
+
+  resources :skill_tag_types
+
+  resources :skill_tags
+
+  resources :resume_sections
+
+  resources :resume_entries
+
+  root 'home#index'
+  get 'home/index'
+  get 'resume/index'
+  get 'resume', :to => 'resume#index'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

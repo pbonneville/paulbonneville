@@ -1,0 +1,8 @@
+<div class="container">
+  <%= render partial: "shared/header_admin", locals: {:title => 'Editing Skill Tag'} %>
+
+  <%= render 'form' %>
+
+  <%= link_to 'Show', @skill_tag %> |
+  <%= link_to 'Back', skill_tags_path %>
+</div>

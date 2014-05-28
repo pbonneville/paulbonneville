@@ -1,0 +1,18 @@
+<div class="container">
+
+  <div class="alert alert-success"><%= notice %></div>
+
+  <p>
+    <strong>Title:</strong>
+    <%= @resume_section.title %>
+  </p>
+
+  <p>
+    <strong>Sortorder:</strong>
+    <%= @resume_section.sortOrder %>
+  </p>
+
+  <%= link_to 'Edit', edit_resume_section_path(@resume_section) %> |
+  <%= link_to 'Back', resume_sections_path %>
+
+</div>

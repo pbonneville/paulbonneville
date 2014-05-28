@@ -1,0 +1,32 @@
+<div class="container">
+  <br/>
+  <div class="alert alert-success"><%= notice %></div>
+
+  <p>
+    <strong>Title:</strong>
+    <%= @resume_entry.title %>
+  </p>
+
+  <p>
+    <strong>Organization:</strong>
+    <%= @resume_entry.organization %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= @resume_entry.location %>
+  </p>
+
+  <p>
+    <strong>Description:</strong><br/>
+    <%= markdown(@resume_entry.description) %>
+  </p>
+
+  <p>
+    <strong>Sortorder:</strong>
+    <%= @resume_entry.sortOrder %>
+  </p>
+
+  <%= link_to 'Edit', edit_resume_entry_path(@resume_entry) %> |
+  <%= link_to 'Back', resume_entries_path %>
+</div>

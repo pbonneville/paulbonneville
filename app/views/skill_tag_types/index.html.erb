@@ -1,0 +1,26 @@
+<div class="container">
+  <%= render partial: "shared/header_admin", locals: {:title => 'Listing Skill Tag Types'} %>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @skill_tag_types.each do |skill_tag_type| %>
+        <tr>
+          <td><%= skill_tag_type.tagType %></td>
+          <td><%= link_to 'Show', skill_tag_type %></td>
+          <td><%= link_to 'Edit', edit_skill_tag_type_path(skill_tag_type) %></td>
+          <td><%= link_to 'Destroy', skill_tag_type, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br/>
+  <a href="<%= new_skill_tag_type_path %>" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+</div>
