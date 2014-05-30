@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
+# Keeps local environment and setting variable in application.yml
 gem 'figaro'
+
+# Markdown parser
 gem 'redcarpet'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -47,4 +50,6 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+ruby "2.1.1"
 
