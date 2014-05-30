@@ -1,4 +1,5 @@
 class ResumeEntriesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_resume_entry, only: [:show, :edit, :update, :destroy]
 
   layout 'admin'

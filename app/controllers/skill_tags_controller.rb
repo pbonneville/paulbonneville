@@ -1,4 +1,5 @@
 class SkillTagsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_skill_tag, only: [:show, :edit, :update, :destroy]
 
   layout 'admin'

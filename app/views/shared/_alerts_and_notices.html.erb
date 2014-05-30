@@ -1,0 +1,15 @@
+<!-- Alerts and Notices -->
+<% if notice.nil? or alert.nil? %>
+    <div class="container">
+      <% unless notice.nil? %>
+          <div class="alert alert-success">
+            <a href="#" class="alert-link"><%= notice %></a>
+          </div>
+      <% end %>
+      <% unless alert.nil? %>
+          <div class="alert alert-success">
+            <a href="#" class="alert-link"><%= alert %></a>
+          </div>
+      <% end %>
+    </div>
+<% end %>

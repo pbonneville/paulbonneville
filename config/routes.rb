@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :skill_tag_types
 
   resources :skill_tags

@@ -9,6 +9,9 @@ gem 'redcarpet'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 
+# Authetication
+gem 'devise'
+
 # Heroku
 gem 'pg'
 gem 'rails_12factor', group: :production
