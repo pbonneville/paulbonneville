@@ -1,10 +1,12 @@
 class ResumeSectionsController < ApplicationController
   before_action :set_resume_section, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /resume_sections
   # GET /resume_sections.json
   def index
-    @resume_sections = ResumeSection.all
+    @resume_sections = ResumeSection.all.order(:sortOrder)
   end
 
   # GET /resume_sections/1

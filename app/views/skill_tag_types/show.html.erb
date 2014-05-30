@@ -1,13 +1,9 @@
-<div class="container">
-  <%= render partial: "shared/header_admin", locals: {:title => 'Success'} %>
+<div class="alert alert-success" style="margin-top: 20px"><%= notice %></div>
 
-  <div class="alert alert-success"><%= notice %></div>
+<p>
+  <strong>Type:</strong>
+  <%= @skill_tag_type.tagType %>
+</p>
 
-  <p>
-    <strong>Type:</strong>
-    <%= @skill_tag_type.tagType %>
-  </p>
-
-  <%= link_to 'Edit', edit_skill_tag_type_path(@skill_tag_type) %> |
-  <%= link_to 'Back', skill_tag_types_path %>
-</div>
+<%= link_to 'Edit', edit_skill_tag_type_path(@skill_tag_type) %> |
+<%= link_to 'Back', skill_tag_types_path %>

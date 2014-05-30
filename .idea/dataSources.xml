@@ -3,27 +3,35 @@
   <component name="DataSourceManagerImpl" format="xml" hash="2566979900">
     <data-source source="LOCAL" name="Rails paulbonneville: development" uuid="1cea0fa1-6582-4bee-bba3-b09ef464643f">
       <driver-ref>mysql</driver-ref>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/paulbonneville_development</jdbc-url>
-      <user-name>&lt;%= ENV[&quot;DEVELOPMENT_DB_USER&quot;] %&gt;</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df88dfeedfefdffcdfefdfe6dfe5dffadfe7dfefdfe4dffedff5dfeedfe8dff5dffadfebdff9dff9df88dff7df8adf8fdf94</user-password>
-      <libraries />
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/paulbonneville_development</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-9.2-1002.jdbc4.jar</url>
+        </library>
+      </libraries>
     </data-source>
     <data-source source="LOCAL" name="Rails paulbonneville: test" uuid="20bfab58-f390-4b65-8023-0b43b8be9f7f">
       <driver-ref>mysql</driver-ref>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/paulbonneville_test</jdbc-url>
-      <user-name>&lt;%= ENV[&quot;DEVELOPMENT_DB_USER&quot;] %&gt;</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df88dfeedfefdffcdfefdfe6dfe5dffadfe7dfefdfe4dffedff5dfeedfe8dff5dffadfebdff9dff9df88dff7df8adf8fdf94</user-password>
-      <libraries />
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/paulbonneville_test</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-9.2-1002.jdbc4.jar</url>
+        </library>
+      </libraries>
     </data-source>
     <data-source source="LOCAL" name="Rails paulbonneville: production" uuid="16d5325f-b16f-424a-9f98-d9cf87a0bac2">
       <driver-ref>mysql</driver-ref>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/paulbonneville_production</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/paulbonneville_production</jdbc-url>
       <user-name>paulbonneville</user-name>
       <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffadfebdfffdfe6dfe8dfe5dfe4dfe4dfefdffcdfe3dfe6dfe6dfefdff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
-      <libraries />
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-9.2-1002.jdbc4.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

@@ -1,15 +1,18 @@
 class ResumeEntriesController < ApplicationController
   before_action :set_resume_entry, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /resume_entries
   # GET /resume_entries.json
   def index
-    @resume_entries = ResumeEntry.all
+    @resume_entries = ResumeEntry.all.order(:resume_section_id).order(:sortOrder)
   end
 
   # GET /resume_entries/1
   # GET /resume_entries/1.json
   def show
+    @resume_entry_skill_tags = @resume_entry.skill_tags.order('LOWER(tag)');
   end
 
   # GET /resume_entries/new
@@ -19,6 +22,7 @@ class ResumeEntriesController < ApplicationController
 
   # GET /resume_entries/1/edit
   def edit
+
   end
 
   # POST /resume_entries
@@ -69,6 +73,6 @@ class ResumeEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resume_entry_params
-      params[:resume_entry].permit(:title, :organization, :timeframe, :location, :description, :sortOrder, :resume_section_id)
+      params[:resume_entry].permit(:title, :organization, :timeframe, :location, :description, :sortOrder, :resume_section_id, skill_tag_ids:[])
     end
 end

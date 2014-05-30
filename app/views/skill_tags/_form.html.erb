@@ -19,7 +19,7 @@
     <div class="field">
       <%= f.label 'Skill Tag Type' %>
       <br>
-      <%= f.collection_select(:skill_tag_type_id, SkillTagType.all, :id, :tagType, {:prompt => true}) %>
+      <%= f.collection_select(:skill_tag_type_id, SkillTagType.all.order(:sortOrder), :id, :tagType, {:prompt => true, :selected => SkillTagType.first}) %>
     </div>
     <div class="actions">
       <%= f.submit %>

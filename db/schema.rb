@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528035901) do
+ActiveRecord::Schema.define(version: 20140530040255) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "resume_entries", force: true do |t|
     t.string   "title"
@@ -25,6 +28,11 @@ ActiveRecord::Schema.define(version: 20140528035901) do
     t.string   "timeframe"
   end
 
+  create_table "resume_entries_skill_tags", force: true do |t|
+    t.integer "resume_entry_id"
+    t.integer "skill_tag_id"
+  end
+
   create_table "resume_sections", force: true do |t|
     t.string   "title"
     t.integer  "sortOrder"
@@ -36,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140528035901) do
     t.string   "tagType"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sortOrder"
   end
 
   create_table "skill_tags", force: true do |t|

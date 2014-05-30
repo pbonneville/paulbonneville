@@ -1,10 +1,12 @@
 class SkillTagTypesController < ApplicationController
   before_action :set_skill_tag_type, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /skill_tag_types
   # GET /skill_tag_types.json
   def index
-    @skill_tag_types = SkillTagType.all
+    @skill_tag_types = SkillTagType.all.order(:sortOrder)
   end
 
   # GET /skill_tag_types/1
@@ -69,6 +71,6 @@ class SkillTagTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def skill_tag_type_params
-      params.require(:skill_tag_type).permit(:tagType)
+      params.require(:skill_tag_type).permit(:tagType, :sortOrder)
     end
 end

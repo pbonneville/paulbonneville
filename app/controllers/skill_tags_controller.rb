@@ -1,6 +1,8 @@
 class SkillTagsController < ApplicationController
   before_action :set_skill_tag, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /skill_tags
   # GET /skill_tags.json
   def index

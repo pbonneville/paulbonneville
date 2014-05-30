@@ -8,9 +8,9 @@
   <meta name="author" content="">
   <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-  <title><%= full_title(defined? @title ? @title : nil) %></title>
+  <title>ADMIN</title>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
@@ -28,11 +28,11 @@
 
 <body>
 
-<%= render partial: 'shared/navbar' %>
+<%= render partial: "shared/admin_navbar" %>
 
-<%= yield %>
-
-<%= render partial: 'shared/footer' %>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

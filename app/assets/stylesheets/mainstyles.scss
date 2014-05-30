@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "font-awesome";
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 html {
@@ -94,4 +95,11 @@ select {
   font-size: 18px;
   border: 0;
   padding: 5px;
+}
+
+.form_checkbox_container {
+  font-weight: normal;
+  width: 25%;
+  display: inline-block;
+  pagging: 5px;
 }
