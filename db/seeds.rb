@@ -8,4 +8,4 @@
 
 puts 'SETTING UP DEFAULT USER LOGIN'
 user = User.create! :email => 'admin@admin.com', :password => '12345678', :password_confirmation => '12345678'
-puts 'New user created: ' << user.name
+puts 'New user created: ' << user.email
