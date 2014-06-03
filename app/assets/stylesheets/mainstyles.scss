@@ -1,4 +1,8 @@
+$navbar-inverse-bg: #002e5d;
+$navbar-inverse-link-color: #b9dbfe;
+
 @import "bootstrap";
+//@import "bootstrap/theme";
 @import "font-awesome";
 
 /* Move down content because we have a fixed navbar that is 50px tall */
@@ -64,7 +68,7 @@ table td {
 }
 
 .actions {
-  margin: 20px 0 15px 0;
+
 }
 
 input[type=text] {
@@ -73,11 +77,18 @@ input[type=text] {
   font-size: 16px;
 }
 
-input[type=submit] {
+input[type=number] {
   width: 100%;
   padding: 10px;
   font-size: 16px;
 }
+
+input[type=submit] {
+  padding: 10px;
+  font-size: 16px;
+  margin: 20px 0 20px 0;
+}
+
 
 textarea {
   width: 100%;

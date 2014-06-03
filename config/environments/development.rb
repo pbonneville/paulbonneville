@@ -14,10 +14,19 @@ Rails.application.configure do
       address:              'smtp.gmail.com',
       port:                 587,
       domain:               'gmail.com',
-      user_name:            Figaro.env.gmail_user,
-      password:             Figaro.env.gmail_password,
+      user_name:            ENV['GMAIL_USER'],
+      password:             ENV['GMAIL_PASSWORD'],
       authentication:       'plain',
       enable_starttls_auto: true  }
+
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => ENV['S3_BUCKET_NAME'],
+          :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+          :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      }
+  }
 
   # Do not eager load code on boot.
   config.eager_load = false

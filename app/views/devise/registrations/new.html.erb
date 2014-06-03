@@ -1,6 +1,6 @@
 <div class="container con">
   <%= devise_error_messages! %>
-  <h2>Sign up</h2>
+  <%= render partial: "shared/header_admin", locals: {:title => 'Sign Up'} %>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 

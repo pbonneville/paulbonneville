@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :skill_tag_types
 
-  resources :skill_tags
-
-  resources :resume_sections
-
-  resources :resume_entries
+  namespace :admin do
+    resources :portfolio_platforms
+    resources :portfolio_entries
+    resources :skill_tag_types
+    resources :skill_tags
+    resources :resume_sections
+    resources :resume_entries
+  end
 
   root 'home#index'
   get 'home/index'

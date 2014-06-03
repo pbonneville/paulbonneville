@@ -1,0 +1,11 @@
+<p>
+  <strong>Title:</strong>
+  <%= @portfolio_platform.title %>
+</p>
+<p>
+  <strong>Sort Order:</strong>
+  <%= @portfolio_platform.sortOrder %>
+</p>
+<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Show', :path => edit_admin_portfolio_platform_path(@portfolio_platform)},
+                                                                     {:title => 'Back', :path => admin_portfolio_platforms_path}] } %>
+

@@ -1,0 +1,6 @@
+<p>
+  <strong>Type:</strong>
+  <%= @skill_tag_type.tagType %>
+</p>
+<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Edit', :path => edit_admin_skill_tag_type_path(@skill_tag_type)},
+                                                                     {:title => 'Back', :path => admin_skill_tag_types_path}] } %>

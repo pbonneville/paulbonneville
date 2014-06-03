@@ -15,6 +15,8 @@
         <li><a href="/resume.html">Resume</a></li>
         <li><a href="/apps.html">Apps</a></li>
         <li><a href="/contact.html">Contact</a></li>
+        <li class="active"><% if !user_signed_in? %><%= link_to 'Sign In', new_user_session_path %><% end %></li>
+        <li class="active"><% if user_signed_in? %><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %><% end %></li>
       </ul>
     </div><!--/.navbar-collapse -->
   </div>

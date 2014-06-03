@@ -1,0 +1,2 @@
+module PortfolioPlatformsHelper
+end

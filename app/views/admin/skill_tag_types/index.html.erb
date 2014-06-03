@@ -1,0 +1,23 @@
+<%= render partial: "shared/header_admin", locals: {:title => 'Listing Skill Tag Types'} %>
+<table>
+  <thead>
+  <tr>
+    <th>Type</th>
+    <th>Sort Order</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @skill_tag_types.each do |skill_tag_type| %>
+      <tr>
+        <td><%= skill_tag_type.tagType %></td>
+        <td><%= skill_tag_type.sortOrder %></td>
+        <td><%= link_to 'Show', admin_skill_tag_type_path(skill_tag_type) %></td>
+        <td><%= link_to 'Edit', edit_admin_skill_tag_type_path(skill_tag_type) %></td>
+        <td><%= link_to 'Destroy', admin_skill_tag_type_path(skill_tag_type), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'New Skill Tag', :path => new_admin_skill_tag_type_path}] } %>
+

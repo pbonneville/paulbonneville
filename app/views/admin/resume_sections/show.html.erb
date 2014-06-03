@@ -1,0 +1,10 @@
+<p>
+  <strong>Title:</strong>
+  <%= @resume_section.title %>
+</p>
+<p>
+  <strong>Sortorder:</strong>
+  <%= @resume_section.sortOrder %>
+</p>
+<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Edit', :path => edit_admin_resume_section_path(@resume_section)},
+                                                                     {:title => 'Back', :path => admin_resume_sections_path}] } %>

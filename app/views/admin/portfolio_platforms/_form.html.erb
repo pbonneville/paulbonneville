@@ -1,0 +1,25 @@
+<%= form_for(@portfolio_platform, :url => url_for([:admin, @portfolio_platform])) do |f| %>
+  <% if @portfolio_platform.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@portfolio_platform.errors.count, "error") %> prohibited this portfolio_platform from being saved:</h2>
+
+      <ul>
+      <% @portfolio_platform.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label 'Sort Order' %><br>
+    <%= f.number_field :sortOrder %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

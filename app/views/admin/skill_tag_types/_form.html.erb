@@ -1,0 +1,27 @@
+<%= form_for(@skill_tag_type, :url => url_for([:admin, @skill_tag_type])) do |f| %>
+    <% if @skill_tag_type.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@skill_tag_type.errors.count, "error") %> prohibited this skill_tag_type from being
+            saved:</h2>
+
+          <ul>
+            <% @skill_tag_type.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label 'Tag type' %>
+      <br>
+      <%= f.text_field :tagType %>
+    </div>
+    <div class="field">
+      <%= f.label 'Sort Order' %><br>
+      <%= f.number_field :sortOrder %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

@@ -1,0 +1,22 @@
+<p>
+  <strong>Title:</strong>
+  <%= @portfolio_entry.title %>
+</p>
+<p>
+  <strong>Platform:</strong>
+  <% if defined? @portfolio_entry.portfolio_platform.title %><%= @portfolio_entry.portfolio_platform.title %><% end %>
+</p>
+<p>
+  <strong>Role:</strong>
+  <%= @portfolio_entry.role %>
+</p>
+<p>
+  <strong>Overview:</strong>
+  <%= @portfolio_entry.overview %>
+</p>
+<p>
+  <strong>Sort Order:</strong>
+  <%= @portfolio_entry.sortOrder %>
+</p>
+<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Edit', :path => edit_admin_portfolio_entry_path(@portfolio_entry)},
+                                                                     {:title => 'Back', :path => admin_portfolio_entries_path}] } %>

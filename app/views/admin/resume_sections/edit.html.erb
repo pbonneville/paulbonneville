@@ -1,0 +1,4 @@
+<%= render partial: "shared/header_admin", locals: {:title => 'Edit  Resume Section'} %>
+<%= render 'form' %>
+<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Show', :path => admin_resume_section_path(@resume_section)},
+                                                                     {:title => 'Back', :path => admin_resume_sections_path}] } %>

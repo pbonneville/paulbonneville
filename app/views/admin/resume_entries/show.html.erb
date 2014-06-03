@@ -1,0 +1,28 @@
+<p>
+  <strong>Title:</strong>
+  <%= @resume_entry.title %>
+</p>
+<p>
+  <strong>Organization:</strong>
+  <%= @resume_entry.organization %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @resume_entry.location %>
+</p>
+<p>
+  <strong>Description:</strong><br/>
+  <%= markdown(@resume_entry.description) %>
+</p>
+<p>
+  <strong>Tags:</strong><br/>
+  <% @resume_entry_skill_tags.each do |i| %>
+      <%= i.tag %><% if i != @resume_entry_skill_tags.last %>, <% end %>
+  <% end %>
+</p>
+<p>
+  <strong>Sort Order:</strong>
+  <%= @resume_entry.sortOrder %>
+</p>
+<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Show', :path => edit_admin_resume_entry_path(@resume_entry)},
+                                                                     {:title => 'Back', :path => admin_resume_entries_path}] } %>

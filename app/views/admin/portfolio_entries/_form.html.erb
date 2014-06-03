@@ -1,0 +1,54 @@
+<%= form_for(@portfolio_entry, :url => url_for([:admin, @portfolio_entry])) do |f| %>
+    <% if @portfolio_entry.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@portfolio_entry.errors.count, "error") %> prohibited this portfolio_entry from being
+            saved:</h2>
+
+          <ul>
+            <% @portfolio_entry.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %>
+      <br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :project_image %>
+      <br/>
+      <%= image_tag @portfolio_entry.project_image.url(:thumb) %>
+      <br/>
+      <% if @portfolio_entry.project_image.exists? %>
+          <%= f.check_box(:project_image_delete) %> Delete?
+      <% else %>
+          <%= f.file_field :project_image %>
+      <% end %><br/>
+    </div>
+    <div class="field">
+      <%= f.label 'Portfolio Platform' %>
+      <br>
+      <%= f.collection_select(:portfolio_platform_id, PortfolioPlatform.all.order(:sortOrder), :id, :title, {:prompt => true}) %>
+    </div>
+    <div class="field">
+      <%= f.label :role %>
+      <br>
+      <%= f.text_field :role %>
+    </div>
+    <div class="field">
+      <%= f.label :overview %>
+      <br>
+      <%= f.text_area :overview %>
+    </div>
+    <div class="field">
+      <%= f.label 'Sort Order' %>
+      <br>
+      <%= f.number_field :sortOrder %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

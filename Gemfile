@@ -12,6 +12,10 @@ gem 'rails', '4.1.0'
 # Authetication
 gem 'devise'
 
+# Uploading files
+gem 'paperclip'
+gem 'aws-sdk'
+
 # Heroku
 gem 'pg'
 gem 'rails_12factor', group: :production
