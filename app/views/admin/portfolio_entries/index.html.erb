@@ -1,4 +1,4 @@
-<%= render partial: "shared/header_admin", locals: {:title => 'Listing Portfolio Entries'} %>
+<%= render partial: "shared/header", locals: {:title => 'Listing Portfolio Entries'} %>
 <table>
   <thead>
     <tr>
@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @portfolio_entries.each do |portfolio_entry| %>
+    <% @portfolio_entries.joins(:portfolio_platform).order('"portfolio_platforms"."sortOrder" ASC, "sortOrder" ASC').each do |portfolio_entry| %>
       <tr>
         <td><%= portfolio_entry.title %></td>
         <td nowrap><% if defined? portfolio_entry.portfolio_platform.title %><%= portfolio_entry.portfolio_platform.title %><% end %></td>

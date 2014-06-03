@@ -1,318 +1,58 @@
 <div style="background: url(/img/jumbotronbackground.jpg) no-repeat top; width: 100%; height: 50px;"></div>
 
 <div class="container">
-<!-- Example row of columns -->
-<div class="row">
-  <div class="col-md-12 tk-myriad-pro">
-    <div class="page-header tk-adelle">
-      <h1><strong>Resume</strong>
-        <span class="tk-myriad-pro" style="color: #666666; font-size: 20px"><em>&#149; The things I've done</em></span>
-      </h1>
-    </div>
-    <p>I'm a seasoned interactive programmer with extensive industry experience across the business, technical and
-      creative disciplines of interactive development. From native iOS apps to Adobe Flash/Air-based interactive kiosks,
-      I consider myself to be a well-balanced developer that can bridge the gap between the creative and technical
-      arenas of the business, with a focus on efficiency and reusability in everything I do.</p>
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-12 tk-myriad-pro">
+      <%= render partial: "shared/header", locals: {:title => 'Resume', :subtitle => "Things I've done"} %>
+      <p>I'm a seasoned interactive programmer with extensive industry experience across the business, technical and
+        creative disciplines of interactive development. From native iOS apps to Adobe Flash/Air-based interactive
+        kiosks,
+        I consider myself to be a well-balanced developer that can bridge the gap between the creative and technical
+        arenas of the business, with a focus on efficiency and reusability in everything I do.</p>
 
-    <p>My energies are currently focused on iOS development, both in my current full-time job and in my own personal
-      projects. Unity3d and Ruby on Rails fill up some of my personal time as hobbies and side projects as well.</p>
-    <hr>
+      <p>My energies are currently focused on iOS development, both in my current full-time job and in my own personal
+        projects. Unity3d and Ruby on Rails fill up some of my personal time as hobbies and side projects as well.</p>
+      <hr>
+    </div>
   </div>
-</div>
-<% @sections.order(:sortOrder).each do |section| %>
-    <div class="row">
-      <div class="col-md-2">
-        <p class="tk-adelle" style="font-size: 22px"><b><%= section.title %></b></p>
-      </div>
-      <div class="col-md-10">
-        <% section.resume_entries.order(:sortOrder).each do |entry| %>
-            <div>
-              <h4 class="tk-myriad-pro"><strong><%= entry.title %><em>,
-                <a href="http://www.inventivhealth.com" target="_blank"><%= entry.organization %></a>
-                </em></strong> &mdash; <%= entry.timeframe %>
-                <br/>
-                <small><%= entry.location %></small>
-              </h4>
-              <div class="tk-myriad-pro">
-                <%= markdown(entry.description) %>
-              </div>
-              <div class="well">
-                <span class="label label-success">iOS</span>
-                <span class="label label-success">Adobe Flash</span>
-                <span class="label label-success">Adobe Air</span>
-                <span class="label label-success">HTML</span>
-                <span class="label label-success">CSS</span>
-                <span class="label label-success">JavaScript</span>
-                <span class="label label-success">AngularJS</span>
-                <span class="label label-success">Bootstrap</span>
-                <span class="label label-success">REST</span>
-                <span class="label label-success">Git</span>
-                <span class="label label-success">SVN</span>
-                <span class="label label-primary">Xcode</span>
-                <span class="label label-primary">FDT</span>
-                <span class="label label-primary">Adobe Flash Builder</span>
-                <span class="label label-primary">Adobe Creative Suite</span>
-              </div>
-            </div>
-            <hr>
-        <% end %>
-      </div>
-    </div>
-<% end %>
-<div class="row">
-  <div class="col-md-2">
-    <p class="tk-adelle" style="font-size: 22px"><b>Experience</b></p>
-  </div>
-  <div class="col-md-10">
-    <div>
-      <h4 class="tk-myriad-pro"><strong>Digital Engineer (Telecommute),
-        <em><a href="http://www.inventivhealth.com" target="_blank">inVentiv Health</a></em></strong> &mdash; February
-        2009 - Current
-        <br/>
-        <small>Westerville, Ohio</small>
-      </h4>
-      <ul class="tk-myriad-pro">
-        <li>Developing native iOS apps for the iPhone and iPad for both enterprise and Apple App Store distribution.
-        </li>
-        <li>Defining of project architecture, definition and requirements for interactive applications based on supplied
-          business objectives.
-        </li>
-        <li>Programming of touchscreen kiosk and interactive desktop applications using Adobe Flash/Flex/Air And MDM
-          Zinc technologies.
-        </li>
-        <li>Implementation of web-based Content Management Systems (CMS) and web services to supply content to mobile
-          apps and Adobe Flash based applications.
-        </li>
-        <li>Research and integration of MVC based frameworks into Adobe Flash and web application project workflows.
-        </li>
-        <li>Implementation of open source CMS’s for website development. Website development using HTML, CSS and
-          Javascript.
-        </li>
-      </ul>
-      <div class="well">
-        <span class="label label-success">iOS</span>
-        <span class="label label-success">Adobe Flash</span>
-        <span class="label label-success">Adobe Air</span>
-        <span class="label label-success">HTML</span>
-        <span class="label label-success">CSS</span>
-        <span class="label label-success">JavaScript</span>
-        <span class="label label-success">AngularJS</span>
-        <span class="label label-success">Bootstrap</span>
-        <span class="label label-success">REST</span>
-        <span class="label label-success">Git</span>
-        <span class="label label-success">SVN</span>
-        <span class="label label-primary">Xcode</span>
-        <span class="label label-primary">FDT</span>
-        <span class="label label-primary">Adobe Flash Builder</span>
-        <span class="label label-primary">Adobe Creative Suite</span>
-      </div>
-    </div>
-    <hr>
-    <div>
-      <h4 class="tk-myriad-pro">
-        <strong>Consultant, <em>Independent Contractor</em></strong> &mdash; March 2003 - February 2009
-        <br/>
-        <small>Columbus, Ohio</small>
-      </h4>
-      <ul class="tk-myriad-pro">
-        <li>Independent contractor providing website design & development and Internet technology consulting services to
-          various clients.
-        </li>
-        <li>Worked on numerous custom CMS systems using ColdFusion and MS SQL Server.</li>
-        <li>Converted personal blog into urban real estate portal for downtown Columbus Ohio, selling local advertising
-          and real estate listings.
-        </li>
-        <li>Developed a custom CMS system using ColdFusion to build websites that could be edited by content managers.
-          This system was utilized for a major 20+ brand restaurant corporation and implemented by a large retail mall
-          developer that built and managed numerous nationwide mall properties.
-        </li>
-      </ul>
-      <div class="well">
-        <span class="label label-success">HTML</span>
-        <span class="label label-success">CSS</span>
-        <span class="label label-success">JavaScript</span>
-        <span class="label label-success">ColdFusion</span>
-        <span class="label label-success">MS SQL Server</span>
-        <span class="label label-success">MS IIS</span>
-        <span class="label label-primary">Adobe Creative Suite</span>
-      </div>
-    </div>
-    <hr>
-    <div>
-      <h4 class="tk-myriad-pro">
-        <strong>Technology Director, <em>Community Building Partners</em></strong> &mdash; March 2007 - November 2007
-        <br/>
-        <small>Columbus, Ohio</small>
-      </h4>
-      <ul class="tk-myriad-pro">
-        <li>Responsible for all technology systems including MIS and communication systems.</li>
-        <li>Responsible for development and maintenance of web presence, SEO positioning, and integrated intranet and
-          extranet functions.
-        </li>
-        <li>Duties included overseeing implementation and administration of integrated customer relations management and
-          homebuilding management software.
-        </li>
-        <li>Developed and maintained multiple web properties under an umbrella site for the parent company that allowed
-          for differentiated branding for each of the properties under development.
-        </li>
-      </ul>
-      <div class="well">
-        <span class="label label-success">HTML</span>
-        <span class="label label-success">CSS</span>
-        <span class="label label-success">JavaScript</span>
-      </div>
-    </div>
-    <hr>
-    <div>
-      <h4 class="tk-myriad-pro">
-        <strong>Systems Analyst,
-          <em><a href="https://hsl.osu.edu" target="_blank">Health Sciences Library - The Ohio State University</a></em></strong> &mdash;
-        November 2006 - March 2007
-        <br/>
-        <small>Columbus, Ohio</small>
-      </h4>
-      <ul class="tk-myriad-pro">
-        <li>Responsible for component development and feature enhancement of university wide web-based application used
-          to manage faculty Curriculum Vitae (professional and educational experience portfolio) information.
-        </li>
-        <li>Led investigations and research into migrating portions of existing ColdFusion and HTML-based application
-          into new technologies employing Rich Internet Applications methodologies as implemented in Adobe Flex.
-        </li>
-        <li>Worked with a diverse team of content experts, system administrators and educational administrators to build
-          the web-based application to meet the requirements of multiple stakeholders.
-        </li>
-      </ul>
-      <div class="well">
-        <span class="label label-success">HTML</span>
-        <span class="label label-success">CSS</span>
-        <span class="label label-success">JavaScript</span>
-        <span class="label label-success">Adobe Flash</span>
-        <span class="label label-success">Adobe Flex</span>
+  <% @sections.order(:sortOrder).each do |section| %>
+      <div class="row">
+        <div class="col-md-2">
+          <p class="tk-adelle" style="font-size: 22px"><b><%= section.title %></b></p>
+        </div>
+        <div class="col-md-10">
+          <% section.resume_entries.order(:sortOrder).each do |entry| %>
+              <div>
+                <h4 class="tk-myriad-pro">
+                  <strong>
+                    <span class="cleanBreakBlock"><%= entry.title %>,</span>
+                    <% if !entry.organizationURL.blank? %>
+                        <em><a href="http://www.inventivhealth.com" target="_blank" class="cleanBreakBlock"><%= entry.organization %></a></em>
+                    <% else %>
+                        <span class="cleanBreakBlock"><%= entry.organization %></span>
+                    <% end %>
+                  </strong>
+                  <span class="cleanBreakBlock">&mdash; <%= entry.timeframe %></span>
 
+                  <div>
+                    <small><%= entry.location %></small>
+                  </div>
+                </h4>
+                <div class="tk-myriad-pro">
+                  <%= markdown(entry.description) %>
+                </div>
+                <% if !entry.skill_tags.empty? %>
+                    <div class="well">
+                      <% entry.skill_tags.order("skill_tag_type_id ASC, tag ASC").each do |tag| %>
+                          <span class="label <%= tag.skill_tag_type.tagType == ('Technology') ? 'label-success' : 'label-primary' %>"><%= tag.tag %></span>
+                      <% end %>
+                    </div>
+                <% end %>
+              </div>
+              <hr>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <hr>
-    <div>
-      <h4 class="tk-myriad-pro">
-        <strong>Sales and Marketing Coordinator, <em>Community Building Partners</em></strong> &mdash; September 2004 -
-        February 2006
-        <br/>
-        <small>Columbus, Ohio</small>
-      </h4>
-      <ul class="tk-myriad-pro">
-        <li>Coordinated sales and marketing initiatives for National Community Builder’s planned 41.5 acre 1000+ unit
-          Jeffrey Place mixed-use urban residential development in Italian Village, Columbus Ohio.
-        </li>
-        <li>General duties included: direct customer sales, print and web marketing material creation and management,
-          extranet development and customer data management.
-        </li>
-        <li>Developed and maintained multiple web properties under an umbrella site for the parent company that allowed
-          for differentiated branding for each of the properties under development.
-        </li>
-      </ul>
-      <div class="well">
-        <span class="label label-success">HTML</span>
-        <span class="label label-success">CSS</span>
-        <span class="label label-success">JavaScript</span>
-      </div>
-    </div>
-    <hr>
-    <div>
-      <h4 class="tk-myriad-pro">
-        <strong>Instructor, <em><a href="http://www.cscc.edu" target="_blank">Columbus State Community College</a></em></strong> &mdash;
-        July 2001 - March 2003
-        <br/>
-        <small>Columbus, Ohio</small>
-      </h4>
-      <ul class="tk-myriad-pro">
-        <li>Instructed students in various ten-week night courses in the Multimedia Production Technology program.</li>
-        <li>Courses ranged from an introduction to multimedia technologies to various graphic and multimedia development
-          authoring, including Adobe Flash, Dreamweaver, and Freehand.
-        </li>
-        <li>Taught course on building hierarchical websites with HTML and CSS using Adobe Dreamweaver. Expanded the
-          basic course to include individual FTP access and custom URLs for each student to allow for a wholistic
-          training experience.
-        </li>
-      </ul>
-      <div class="well">
-        <span class="label label-success">HTML</span>
-        <span class="label label-success">CSS</span>
-        <span class="label label-success">JavaScript</span>
-        <span class="label label-primary">Adobe Creative Suite</span>
-      </div>
-    </div>
-    <hr>
-    <div>
-      <h4 class="tk-myriad-pro">
-        <strong>Senior Web Developer,
-          <em><a href="http://millsjames.com" target="_blank">Mills/James Productions</a></em></strong> &mdash; June
-        1997 - January 2003
-        <br/>
-        <small>Columbus, Ohio</small>
-      </h4>
-      <ul class="tk-myriad-pro">
-        <li>Primary role was to define, design, develop and maintain custom websites and applications for internal and
-          external clients.
-        </li>
-        <li>Responsibilities included: Project proposal and estimating, relational database design and development, page
-          layout, digital graphic creation, digital media conversion and compression.
-        </li>
-        <li>Managed and implemented web server environment.</li>
-        <li>Managed development team of 3 junior programmers.</li>
-      </ul>
-      <div class="well">
-        <span class="label label-success">HTML</span>
-        <span class="label label-success">CSS</span>
-        <span class="label label-success">JavaScript</span>
-        <span class="label label-success">ColdFusion</span>
-        <span class="label label-success">MS SQL Server</span>
-        <span class="label label-success">MS IIS</span>
-        <span class="label label-primary">Adobe Creative Suite</span>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row" style="background-color: #f5f5f5">
-  <div class="col-md-2">
-    <p class="tk-adelle" style="font-size: 22px"><b>Military</b></p>
-  </div>
-  <div class="col-md-10">
-    <div>
-      <h4 class="tk-myriad-pro">
-        <strong>AH‐64 Apache Attack Helicopter Repairer (E4),
-          <em><a href="http://www.goarmy.com/careers-and-jobs/browse-career-and-job-categories/mechanics/ah-64-attack-helicopter-repairer.html" target="_blank">United
-            States Regular Army</a></em></strong> &mdash; November 1991 – April 1995
-        <br/>
-        <small>Ft. Knox, Kentucky - Ft. Eustis, Virginia - Fulda, Germany - Fort Carson, Colorado</small>
-      </h4>
-      <ul class="tk-myriad-pro">
-        <li>Performed mechanical maintenance on all helicopter flight systems.</li>
-        <li>Responsible for aircraft records, cleaning and refueling.</li>
-        <li>Soldering duties included extended field training exercises, rifle training, guard duty, and daily physical
-          fitness training.
-        </li>
-        <li>Honorably Discharged in April 1995.</li>
-      </ul>
-    </div>
-    <br/>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-2">
-    <p class="tk-adelle" style="font-size: 22px"><strong>Education</strong></p>
-  </div>
-  <div class="col-md-10">
-    <div>
-      <h4 class="tk-myriad-pro">
-        <strong>Bachelors of Science in Technical Education for Business and Industry,
-          <em><a href="http://www.osu.edu">The Ohio State University</a></em></strong> &mdash; March 2011
-        <br/>
-        <small>Columbus, Ohio</small>
-      </h4>
-      <ul class="tk-myriad-pro">
-        <li>Completed a Bachelor's Degree in 2011 after 12 years of having put my degree on hold.</li>
-      </ul>
-    </div>
-  </div>
-</div>
+  <% end %>
 </div> <!-- /container -->

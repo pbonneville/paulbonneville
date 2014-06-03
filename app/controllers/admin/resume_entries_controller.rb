@@ -75,6 +75,6 @@ class Admin::ResumeEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resume_entry_params
-      params[:resume_entry].permit(:title, :organization, :timeframe, :location, :description, :sortOrder, :resume_section_id, skill_tag_ids:[])
+      params[:resume_entry].permit(:title, :organization, :organizationURL, :timeframe, :location, :description, :sortOrder, :resume_section_id, skill_tag_ids:[])
     end
 end

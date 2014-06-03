@@ -31,4 +31,8 @@ module ApplicationHelper
     markdown.render(text).html_safe
   end
 
+  def is_active?(link_path)
+    current_page?(link_path) ? 'active' : ''
+  end
+
 end

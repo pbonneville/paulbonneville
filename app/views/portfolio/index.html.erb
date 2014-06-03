@@ -1,0 +1,51 @@
+<div style="background: url(/img/jumbotronbackground.jpg) no-repeat top; width: 100%; height: 50px;"></div>
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-12 tk-myriad-pro">
+      <%= render partial: "shared/header", locals: {:title => 'Portfolio', :subtitle => 'Things I\'ve made'} %>
+      <p>Given the nature of the industry that I currently work in, I am not able to publicly display the work I have
+        completed. I do have a number of enterprise-distirbuted iOS apps that I have programmed along with a universal
+        iPhone/iPad app in the Apple App Store.</p>
+
+      <p>One step removed from interpretive shadow puppets, what follows are the descriptions of some of my
+        projects.</p>
+      <hr>
+    </div>
+  </div>
+  <% @platforms.order(:sortOrder).each do |platform| %>
+      <div class="row">
+        <div class="col-md-2">
+          <p class="tk-adelle" style="font-size: 22px"><b><%= platform.title %></b></p>
+        </div>
+        <div class="col-md-10">
+          <div class="row">
+            <% platform.portfolio_entries.order(:sortOrder).each_with_index do |entry, i| %>
+                <% if i % 3 == 0 && i > 0 %></div>
+                    <div class="row">
+                <% end %>
+                <div class="col-md-4">
+                  <a href="#project<%= i %><%= platform.title %>" name="thumb<%= i %><%= platform.title %>" class="thumbnail"><%= image_tag entry.project_image.url(:thumb) %></a>
+                </div>
+            <% end %>
+            </div>
+            </div>
+      </div>
+  <% end %>
+  <hr>
+  <% @platforms.order(:sortOrder).each do |platform| %>
+      <% platform.portfolio_entries.order(:sortOrder).each_with_index do |entry, i| %>
+          <div class="row">
+            <div class="col-md-12" name="project<%= i %><%= platform.title %>">
+              <div style="position: relative; width:100%; height: 485px; overflow: hidden">
+                <div style="position: absolute;"><%= image_tag entry.project_image.url(:original), :class => 'fixed-width' %></div>
+                <h3 style="position: relative"><%= entry.title %></h3>
+                <div style="position: relative"><a href="#thumb<%= i %><%= platform.title %>">Back to top</a></div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+  <% end %>
+
+</div> <!-- /container -->

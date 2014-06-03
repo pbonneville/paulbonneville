@@ -11,13 +11,19 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right tk-myriad-pro">
-        <li><a href="/portfolio.html">Portfolio</a></li>
-        <li><a href="/resume.html">Resume</a></li>
+        <% if !current_page?(root_path) %><%= render partial: "shared/navbar_link", locals: {:title => 'Home', :path => root_path} %><% end %>
+        <%= render partial: "shared/navbar_link", locals: {:title => 'Portfolio', :path => portfolio_path} %>
+        <%= render partial: "shared/navbar_link", locals: {:title => 'Resume', :path => resume_path} %>
         <li><a href="/apps.html">Apps</a></li>
         <li><a href="/contact.html">Contact</a></li>
-        <li class="active"><% if !user_signed_in? %><%= link_to 'Sign In', new_user_session_path %><% end %></li>
-        <li class="active"><% if user_signed_in? %><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %><% end %></li>
+        <% if !user_signed_in? %>
+            <li class="active"><%= link_to 'Sign In', new_user_session_path %></li>
+        <% else %>
+            <li class="active"><%= link_to '', users_path, :class => 'glyphicon glyphicon-arrow-right' %></li>
+            <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <% end %>
       </ul>
-    </div><!--/.navbar-collapse -->
+    </div>
+    <!--/.navbar-collapse -->
   </div>
 </div>

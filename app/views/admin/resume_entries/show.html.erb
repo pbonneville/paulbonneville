@@ -4,7 +4,11 @@
 </p>
 <p>
   <strong>Organization:</strong>
-  <%= @resume_entry.organization %>
+  <% if @resume_entry.organizationURL.blank? %>
+      <%= @resume_entry.organization %>
+  <% else %>
+      <%= link_to @resume_entry.organization, @resume_entry.organizationURL, :target => '_blank' %>
+  <% end %>
 </p>
 <p>
   <strong>Location:</strong>
@@ -17,7 +21,9 @@
 <p>
   <strong>Tags:</strong><br/>
   <% @resume_entry_skill_tags.each do |i| %>
-      <%= i.tag %><% if i != @resume_entry_skill_tags.last %>, <% end %>
+      <%= i.tag %>
+      <% if i != @resume_entry_skill_tags.last %>,
+      <% end %>
   <% end %>
 </p>
 <p>
@@ -25,4 +31,4 @@
   <%= @resume_entry.sortOrder %>
 </p>
 <%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Show', :path => edit_admin_resume_entry_path(@resume_entry)},
-                                                                     {:title => 'Back', :path => admin_resume_entries_path}] } %>
+                                                                     {:title => 'Back', :path => admin_resume_entries_path}]} %>

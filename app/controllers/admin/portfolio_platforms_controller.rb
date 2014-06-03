@@ -7,7 +7,7 @@ class Admin::PortfolioPlatformsController < ApplicationController
   # GET /portfolio_platforms
   # GET /portfolio_platforms.json
   def index
-    @portfolio_platforms = PortfolioPlatform.all
+    @portfolio_platforms = PortfolioPlatform.all.order(:sortOrder)
   end
 
   # GET /portfolio_platforms/1

@@ -1,5 +1,5 @@
 <div class="container">
-  <%= render partial: "shared/header_admin", locals: {:title => 'Sign In'} %>
+  <%= render partial: "shared/header", locals: {:title => 'Sign In'} %>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div><%= f.label :email %>

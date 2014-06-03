@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603043621) do
+ActiveRecord::Schema.define(version: 20140603164603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140603043621) do
     t.datetime "updated_at"
     t.integer  "resume_section_id"
     t.string   "timeframe"
+    t.string   "organizationURL"
   end
 
   create_table "resume_entries_skill_tags", force: true do |t|

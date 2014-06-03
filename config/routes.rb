@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   namespace :admin do
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'resume/index'
   get 'resume', :to => 'resume#index'
+  get 'portfolio/index'
+  get 'portfolio', :to => 'portfolio#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
