@@ -1,0 +1,11 @@
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Approved:</strong>
+  <%= @user.approved %>
+</p>
+<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Edit', :path => edit_user_path(@user)},
+                                                                     {:title => 'Back', :path => users_path}] } %>

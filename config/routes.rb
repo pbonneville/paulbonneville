@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   namespace :admin do
     resources :portfolio_platforms
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :resume_sections
     resources :resume_entries
   end
+
+  resources :users
 
   root 'home#index'
   get 'home/index'
