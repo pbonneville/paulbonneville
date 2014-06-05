@@ -3,6 +3,13 @@
   <%= @portfolio_entry.title %>
 </p>
 <p>
+  <strong><%= image_tag @portfolio_entry.project_image.url(:thumb) %></strong>
+</p>
+<div class="field">
+  <strong>Background Color:</strong>
+  <div style="width: 25px; height:25px; margin-bottom: 10px; background-color: <%= @portfolio_entry.backgroundColor %>"></div>
+</div>
+<p>
   <strong>Platform:</strong>
   <% if defined? @portfolio_entry.portfolio_platform.title %><%= @portfolio_entry.portfolio_platform.title %><% end %>
 </p>
@@ -12,7 +19,7 @@
 </p>
 <p>
   <strong>Overview:</strong>
-  <%= @portfolio_entry.overview %>
+  <%= markdown(@portfolio_entry.overview) %>
 </p>
 <p>
   <strong>Sort Order:</strong>

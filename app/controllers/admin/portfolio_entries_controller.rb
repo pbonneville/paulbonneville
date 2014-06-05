@@ -72,6 +72,6 @@ class Admin::PortfolioEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def portfolio_entry_params
-      params.require(:portfolio_entry).permit(:title, :portfolio_platform_id, :role, :overview, :sortOrder, :project_image, :project_image_delete)
+      params.require(:portfolio_entry).permit(:title, :portfolio_platform_id, :role, :overview, :sortOrder, :project_image, :project_image_delete, :backgroundColor)
     end
 end

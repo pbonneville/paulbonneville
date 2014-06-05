@@ -17,10 +17,10 @@
         <li><a href="/apps.html">Apps</a></li>
         <li><a href="/contact.html">Contact</a></li>
         <% if !user_signed_in? %>
-            <li class="active"><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
         <% else %>
-            <li class="active"><%= link_to '', users_path, :class => 'glyphicon glyphicon-arrow-right' %></li>
-            <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :style => 'color:#f5f5f5' %></li>
+            <li><%= link_to '', users_path, :class => 'glyphicon glyphicon-wrench' %></li>
         <% end %>
       </ul>
     </div>

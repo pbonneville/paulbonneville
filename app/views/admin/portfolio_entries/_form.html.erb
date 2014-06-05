@@ -29,6 +29,11 @@
       <% end %><br/>
     </div>
     <div class="field">
+      <%= f.label 'Background Color' %>
+      <br>
+      <%= f.text_field :backgroundColor %>
+    </div>
+    <div class="field">
       <%= f.label 'Portfolio Platform' %>
       <br>
       <%= f.collection_select(:portfolio_platform_id, PortfolioPlatform.all.order(:sortOrder), :id, :title, {:prompt => true}) %>
