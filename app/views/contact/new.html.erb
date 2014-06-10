@@ -1,0 +1,45 @@
+<div style="background: url(/img/jumbotronbackground.jpg) no-repeat top; width: 100%; height: 50px;"></div>
+
+<div>
+  <% flash.each do |key, value| %>
+      <div class="alert alert-success">
+        <div class="container">
+          <a href="#" data-dismiss="alert" class="alert-link"><%= value %></a>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<div class="container" style="margin-bottom: 40px;">
+  <div class="row">
+    <div class="col-md-12 tk-myriad-pro">
+      <%= render partial: "shared/header", locals: {:title => 'Contact', :subtitle => 'Get in touch'} %>
+      <p>There are plenty of social channels to reach out to me through, but this one is probably the most direct.</p>
+      <hr>
+    </div>
+  </div>
+
+  <%= form_for @contact, :url => contact_path do |f| %>
+      <div class="field">
+        <%= f.label :name %>
+        <br>
+        <%= f.text_field :name, :required => true %>
+      </div>
+      <div class="field">
+        <%= f.label :email %>
+        <br>
+        <%= f.text_field :email, :required => true %>
+      </div>
+      <div class="field">
+        <%= f.label :message %>
+        <br>
+        <%= f.text_area :message, :required => true %>
+      </div>
+      <div class= "hidden">
+        <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Send message', :class => 'btn btn-default' %>
+      </div>
+  <% end %>
+</div>

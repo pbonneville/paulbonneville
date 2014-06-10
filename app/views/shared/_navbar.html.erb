@@ -14,8 +14,8 @@
         <% if !current_page?(root_path) %><%= render partial: "shared/navbar_link", locals: {:title => 'Home', :path => root_path} %><% end %>
         <%= render partial: "shared/navbar_link", locals: {:title => 'Portfolio', :path => portfolio_path} %>
         <%= render partial: "shared/navbar_link", locals: {:title => 'Resume', :path => resume_path} %>
-        <li><a href="/apps.html">Apps</a></li>
-        <li><a href="/contact.html">Contact</a></li>
+        <%= render partial: "shared/navbar_link", locals: {:title => 'Apps', :path => apps_path} %>
+        <%= render partial: "shared/navbar_link", locals: {:title => 'Contact', :path => contact_path} %>
         <% if !user_signed_in? %>
             <li><%= link_to 'Sign In', new_user_session_path %></li>
         <% else %>

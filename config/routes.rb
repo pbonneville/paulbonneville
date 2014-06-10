@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   namespace :admin do
@@ -20,6 +19,11 @@ Rails.application.routes.draw do
   get 'resume', :to => 'resume#index'
   get 'portfolio/index'
   get 'portfolio', :to => 'portfolio#index'
+	get 'apps/index'
+	get 'apps', :to => 'apps#index'
+
+	match '/contact', to: 'contact#new', via: 'get'
+	resources "contact", only: [:new, :create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

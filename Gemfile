@@ -16,6 +16,10 @@ gem 'devise'
 gem 'paperclip'
 gem 'aws-sdk'
 
+# Contact form
+gem 'mail_form'
+gem 'simple_form'
+
 # Heroku
 gem 'pg'
 gem 'rails_12factor', group: :production
