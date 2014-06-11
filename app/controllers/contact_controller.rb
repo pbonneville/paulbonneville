@@ -1,9 +1,12 @@
 class ContactController < ApplicationController
+
 	def new
+		@title = 'Contact'
 		@contact = Contact.new
 	end
 
 	def create
+		@title = 'Contact'
 		@contact = Contact.new(params[:contact])
 		@contact.request = request
 		if @contact.deliver
