@@ -30,5 +30,5 @@
   <strong>Sort Order:</strong>
   <%= @resume_entry.sortOrder %>
 </p>
-<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Show', :path => edit_admin_resume_entry_path(@resume_entry)},
+<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Edit', :path => edit_admin_resume_entry_path(@resume_entry)},
                                                                      {:title => 'Back', :path => admin_resume_entries_path}]} %>

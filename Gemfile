@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Web server
+gem 'unicorn'
+
 # Keeps local environment and setting variable in application.yml
 gem 'figaro'
 

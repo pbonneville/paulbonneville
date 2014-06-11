@@ -149,6 +149,7 @@
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.9, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.0.7, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v3.1.0, rbenv: 2.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kgio (v2.9.2, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.5.4, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail_form (v1.5.0, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v1.25.1, rbenv: 2.1.1) [gem]" level="application" />
@@ -167,6 +168,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rails_serve_static_assets (v0.0.2, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails_stdout_logging (v0.0.3, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="railties (v4.1.0, rbenv: 2.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="raindrops (v0.13.0, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v10.3.2, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v4.1.1, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redcarpet (v3.1.2, rbenv: 2.1.1) [gem]" level="application" />
@@ -184,6 +186,7 @@
     <orderEntry type="library" scope="PROVIDED" name="turbolinks (v2.2.2, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.0, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.5.0, rbenv: 2.1.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="unicorn (v4.8.3, rbenv: 2.1.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.3, rbenv: 2.1.1) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
