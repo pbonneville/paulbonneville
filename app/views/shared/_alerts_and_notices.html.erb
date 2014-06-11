@@ -1,18 +1,13 @@
 <!-- Alerts and Notices -->
 <% if notice.nil? or alert.nil? %>
-
     <% unless notice.nil? %>
-        <div class="alert alert-success">
-          <div class="container">
-            <a href="#" class="alert-link"><%= notice %></a>
-          </div>
+        <div class="alert alert-success" data-dismiss="alert" style="margin-bottom:0">
+          <div class="container"><i class="glyphicon glyphicon-remove"></i> <%= notice %></div>
         </div>
     <% end %>
     <% unless alert.nil? %>
-        <div class="alert alert-success">
-          <div class="container">
-            <a href="#" class="alert-link"><%= alert %></a>
-          </div>
+        <div class="alert alert-success" data-dismiss="alert" style="margin-bottom:0">
+          <div class="container"><i class="glyphicon glyphicon-remove"></i> <%= alert %></div>
         </div>
     <% end %>
 <% end %>
