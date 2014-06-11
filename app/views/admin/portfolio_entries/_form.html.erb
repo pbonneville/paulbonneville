@@ -13,6 +13,11 @@
     <% end %>
 
     <div class="field">
+      <%= f.label 'Portfolio Platform' %>
+      <br>
+      <%= f.collection_select(:portfolio_platform_id, PortfolioPlatform.all.order(:sortOrder), :id, :title, {:prompt => true}) %>
+    </div>
+    <div class="field">
       <%= f.label :title %>
       <br>
       <%= f.text_field :title %>
@@ -20,7 +25,7 @@
     <div class="field">
       <%= f.label :project_image %>
       <br/>
-      <%= image_tag @portfolio_entry.project_image.url(:thumb) %>
+      <%= image_tag @portfolio_entry.project_image.url(:original) %>
       <br/>
       <% if @portfolio_entry.project_image.exists? %>
           <%= f.check_box(:project_image_delete) %> Delete?
@@ -32,11 +37,6 @@
       <%= f.label 'Background Color' %>
       <br>
       <%= f.text_field :backgroundColor %>
-    </div>
-    <div class="field">
-      <%= f.label 'Portfolio Platform' %>
-      <br>
-      <%= f.collection_select(:portfolio_platform_id, PortfolioPlatform.all.order(:sortOrder), :id, :title, {:prompt => true}) %>
     </div>
     <div class="field">
       <%= f.label :role %>
@@ -52,6 +52,15 @@
       <%= f.label 'Sort Order' %>
       <br>
       <%= f.number_field :sortOrder %>
+    </div>
+    <div class="field">
+      <%= f.label 'Tags' %>
+      <br>
+      <div class="well">
+      <%= collection_check_boxes(:portfolio_entry, :skill_tag_ids, SkillTag.all.order('LOWER(tag)'), :id, :tag) do |b|
+        content_tag(:div, :class => "form_checkbox_container") { b.check_box + ' ' +  b.text }
+      end %>
+      </div>
     </div>
     <div class="actions">
       <%= f.submit %>

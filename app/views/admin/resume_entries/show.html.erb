@@ -1,4 +1,8 @@
 <p>
+  <strong>Section:</strong>
+  <% if defined? @resume_entry.resume_section.title %><%= @resume_entry.resume_section.title %><% end %>
+</p>
+<p>
   <strong>Title:</strong>
   <%= @resume_entry.title %>
 </p>

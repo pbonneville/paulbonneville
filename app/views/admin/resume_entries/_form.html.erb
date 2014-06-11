@@ -12,6 +12,11 @@
     <% end %>
 
     <div class="field">
+      <%= f.label 'Resume Section' %>
+      <br>
+      <%= f.collection_select(:resume_section_id, ResumeSection.all.order(:sortOrder), :id, :title, {:prompt => true}) %>
+    </div>
+    <div class="field">
       <%= f.label :title %>
       <br>
       <%= f.text_field :title %>
@@ -46,16 +51,13 @@
       <%= f.number_field :sortOrder %>
     </div>
     <div class="field">
-      <%= f.label 'Resume Section' %>
-      <br>
-      <%= f.collection_select(:resume_section_id, ResumeSection.all.order(:sortOrder), :id, :title, {:prompt => true}) %>
-    </div>
-    <div class="field">
       <%= f.label 'Tags' %>
       <br>
+      <div class="well">
       <%= collection_check_boxes(:resume_entry, :skill_tag_ids, SkillTag.all.order('LOWER(tag)'), :id, :tag) do |b|
        content_tag(:div, :class => "form_checkbox_container") { b.check_box + ' ' +  b.text }
       end %>
+      </div>
     </div>
     <div class="actions">
       <%= f.submit 'Update Resume Entry' %>

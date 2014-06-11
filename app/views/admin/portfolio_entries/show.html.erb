@@ -1,18 +1,18 @@
 <p>
+  <strong>Platform:</strong>
+  <% if defined? @portfolio_entry.portfolio_platform.title %><%= @portfolio_entry.portfolio_platform.title %><% end %>
+</p>
+<p>
   <strong>Title:</strong>
   <%= @portfolio_entry.title %>
 </p>
 <p>
-  <strong><%= image_tag @portfolio_entry.project_image.url(:thumb) %></strong>
+  <strong><%= image_tag @portfolio_entry.project_image.url(:original) %></strong>
 </p>
 <div class="field">
   <strong>Background Color:</strong>
   <div style="width: 25px; height:25px; margin-bottom: 10px; background-color: <%= @portfolio_entry.backgroundColor %>"></div>
 </div>
-<p>
-  <strong>Platform:</strong>
-  <% if defined? @portfolio_entry.portfolio_platform.title %><%= @portfolio_entry.portfolio_platform.title %><% end %>
-</p>
 <p>
   <strong>Role:</strong>
   <%= @portfolio_entry.role %>
@@ -24,6 +24,14 @@
 <p>
   <strong>Sort Order:</strong>
   <%= @portfolio_entry.sortOrder %>
+</p>
+<p>
+  <strong>Tags:</strong><br/>
+  <% @portfolio_entry_skill_tags.each do |i| %>
+      <%= i.tag %>
+      <% if i != @portfolio_entry_skill_tags.last %>,
+      <% end %>
+  <% end %>
 </p>
 <%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Edit', :path => edit_admin_portfolio_entry_path(@portfolio_entry)},
                                                                      {:title => 'Back', :path => admin_portfolio_entries_path}] } %>

@@ -1,5 +1,6 @@
 class PortfolioEntry < ActiveRecord::Base
   belongs_to :portfolio_platform
+	has_and_belongs_to_many :skill_tags
 
   before_save :destroy_image?
 

@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { :registrations => "registrations" }
+	devise_for :users, :controllers => { :registrations => "registrations" }
 
-  namespace :admin do
-    resources :portfolio_platforms
-    resources :portfolio_entries
-    resources :skill_tag_types
-    resources :skill_tags
-    resources :resume_sections
-    resources :resume_entries
-  end
+	root 'home#index'
 
+	match '/contact', to: 'contact#new', via: 'get'
+	resources "contact", only: [:new, :create]
   resources :users
 
-  root 'home#index'
+  namespace :admin do
+    resources :portfolio_platforms, :portfolio_entries, :skill_tag_types, :skill_tags, :resume_sections, :resume_entries
+  end
+
   get 'home/index'
   get 'resume/index'
   get 'resume', :to => 'resume#index'
@@ -21,10 +19,6 @@ Rails.application.routes.draw do
   get 'portfolio', :to => 'portfolio#index'
 	get 'apps/index'
 	get 'apps', :to => 'apps#index'
-
-	match '/contact', to: 'contact#new', via: 'get'
-	resources "contact", only: [:new, :create]
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
