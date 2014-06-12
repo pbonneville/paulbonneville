@@ -9,3 +9,10 @@
 puts 'SETTING UP DEFAULT USER LOGIN'
 user = User.create! :email => ENV['ADMIN_EMAIL'], :password => '12345678', :password_confirmation => '12345678', :approved => true
 puts 'New user created: ' << user.email
+
+puts 'SETTING UP DEFAULT CONTENT AREAS'
+Content.create! :title =>'Resume'
+Content.create! :title =>'Portfolio'
+Content.create! :title =>'Apps'
+Content.create! :title =>'Contact'
+puts 'Content areas created'
