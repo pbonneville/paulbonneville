@@ -1,0 +1,23 @@
+<%= render partial: "shared/header", locals: {:title => 'Listing Content'} %>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title (Not used for display)</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contents.each do |content| %>
+      <tr>
+        <td style="width: 60px"><%= content.id %></td>
+        <td><%= content.title %></td>
+        <td><%= link_to 'Show', admin_content_path(content) %></td>
+        <td><%= link_to 'Edit', edit_admin_content_path(content) %></td>
+        <td><%= link_to 'Destroy', admin_content_path(content), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'New Content', :path => new_admin_content_path}] } %>
+

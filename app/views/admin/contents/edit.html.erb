@@ -1,0 +1,4 @@
+<%= render partial: "shared/header", locals: {:title => 'Editing Content Entry'} %>
+<%= render 'form' %>
+<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Show', :path => admin_content_path(@content)},
+                                                                     {:title => 'Back', :path => admin_contents_path}] } %>
