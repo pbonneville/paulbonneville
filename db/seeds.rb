@@ -11,8 +11,8 @@ user = User.create! :email => ENV['ADMIN_EMAIL'], :password => '12345678', :pass
 puts 'New user created: ' << user.email
 
 puts 'SETTING UP DEFAULT CONTENT AREAS'
-Content.create! :title =>'Resume'
-Content.create! :title =>'Portfolio'
-Content.create! :title =>'Apps'
-Content.create! :title =>'Contact'
+Content.create :title =>'Resume'
+Content.create :title =>'Portfolio'
+Content.create :title =>'Apps'
+Content.create :title =>'Contact'
 puts 'Content areas created'
