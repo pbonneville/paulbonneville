@@ -31,7 +31,7 @@ class Admin::SkillTagTypesController < ApplicationController
 
     respond_to do |format|
       if @skill_tag_type.save
-        format.html { redirect_to admin_skill_tag_type_path(@skill_tag_type), notice: 'Skill tag type was successfully created.' }
+        format.html { redirect_to :edit_admin_skill_tag_type, notice: 'Skill tag type was successfully created.' }
         format.json { render :show, status: :created, location: @skill_tag_type }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class Admin::SkillTagTypesController < ApplicationController
   def update
     respond_to do |format|
       if @skill_tag_type.update(skill_tag_type_params)
-        format.html { redirect_to admin_skill_tag_type_path(@skill_tag_type), notice: 'Skill tag type was successfully updated.' }
+        format.html { redirect_to :edit_admin_skill_tag_type, notice: 'Skill tag type was successfully updated.' }
         format.json { render :show, status: :ok, location: @skill_tag_type }
       else
         format.html { render :edit }

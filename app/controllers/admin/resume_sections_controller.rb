@@ -31,7 +31,7 @@ class Admin::ResumeSectionsController < ApplicationController
 
     respond_to do |format|
       if @resume_section.save
-        format.html { redirect_to admin_resume_section_path(@resume_section), notice: 'Resume section was successfully created.' }
+        format.html { redirect_to :edit_admin_resume_section, notice: 'Resume section was successfully created.' }
         format.json { render :show, status: :created, location: @resume_section }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class Admin::ResumeSectionsController < ApplicationController
   def update
     respond_to do |format|
       if @resume_section.update(resume_section_params)
-        format.html { redirect_to admin_resume_section_path(@resume_section), notice: 'Resume section was successfully updated.' }
+        format.html { redirect_to :edit_admin_resume_section, notice: 'Resume section was successfully updated.' }
         format.json { render :show, status: :ok, location: @resume_section }
       else
         format.html { render :edit }

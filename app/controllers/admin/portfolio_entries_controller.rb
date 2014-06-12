@@ -13,7 +13,7 @@ class Admin::PortfolioEntriesController < ApplicationController
   # GET /portfolio_entries/1
   # GET /portfolio_entries/1.json
   def show
-		@portfolio_entry_skill_tags = @portfolio_entry.skill_tags.order('LOWER(tag)');
+		@portfolio_entry_skill_tags = @resume_entry.skill_tags.order('LOWER(tag)');
   end
 
   # GET /portfolio_entries/new
@@ -32,7 +32,7 @@ class Admin::PortfolioEntriesController < ApplicationController
 
     respond_to do |format|
       if @portfolio_entry.save
-        format.html { redirect_to url_for([:admin, @portfolio_entry]), notice: 'Portfolio entry was successfully created.' }
+        format.html { redirect_to :edit_admin_portfolio_entry, notice: 'Portfolio entry was successfully created.' }
         format.json { render :show, status: :created, location: @portfolio_entry }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class Admin::PortfolioEntriesController < ApplicationController
   def update
     respond_to do |format|
       if @portfolio_entry.update(portfolio_entry_params)
-        format.html { redirect_to url_for([:admin, @portfolio_entry]), notice: 'Portfolio entry was successfully updated.' }
+        format.html { redirect_to :edit_admin_portfolio_entry, notice: 'Portfolio entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @portfolio_entry }
       else
         format.html { render :edit }

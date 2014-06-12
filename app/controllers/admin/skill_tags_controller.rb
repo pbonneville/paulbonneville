@@ -31,7 +31,7 @@ class Admin::SkillTagsController < ApplicationController
 
     respond_to do |format|
       if @skill_tag.save
-        format.html { redirect_to url_for([:admin, @skill_tag]), notice: 'Skill tag was successfully created.' }
+        format.html { redirect_to :edit_admin_skill_tag, notice: 'Skill tag was successfully created.' }
         format.json { render :show, status: :created, location: @skill_tag }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class Admin::SkillTagsController < ApplicationController
   def update
     respond_to do |format|
       if @skill_tag.update(skill_tag_params)
-        format.html { redirect_to url_for([:admin, @skill_tag]), notice: 'Skill tag was successfully updated.' }
+        format.html { redirect_to :edit_admin_skill_tag, notice: 'Skill tag was successfully updated.' }
         format.json { render :show, status: :ok, location: @skill_tag }
       else
         format.html { render :edit }

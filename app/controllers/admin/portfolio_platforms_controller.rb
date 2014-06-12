@@ -31,7 +31,7 @@ class Admin::PortfolioPlatformsController < ApplicationController
 
     respond_to do |format|
       if @portfolio_platform.save
-        format.html { redirect_to url_for([:admin, @portfolio_platform]), notice: 'Portfolio platform was successfully created.' }
+        format.html { redirect_to :edit_admin_portfolio_platform, notice: 'Portfolio platform was successfully created.' }
         format.json { render :show, status: :created, location: @portfolio_platform }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class Admin::PortfolioPlatformsController < ApplicationController
   def update
     respond_to do |format|
       if @portfolio_platform.update(portfolio_platform_params)
-        format.html { redirect_to url_for([:admin, @portfolio_platform]), notice: 'Portfolio platform was successfully updated.' }
+        format.html { redirect_to :edit_admin_portfolio_platform, notice: 'Portfolio platform was successfully updated.' }
         format.json { render :show, status: :ok, location: @portfolio_platform }
       else
         format.html { render :edit }

@@ -1,3 +1,2 @@
-<%= render partial: "shared/header", locals: {:title => 'New Portfolio Entry'} %>
+<%= render partial: "shared/admin_header", locals: {:title => 'New Entry', :links => [{:title => 'List', :path => admin_portfolio_entries_path}] } %>
 <%= render 'form' %>
-<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Back', :path => admin_portfolio_entries_path}] } %>

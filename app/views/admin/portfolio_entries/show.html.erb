@@ -1,3 +1,5 @@
+<%= render partial: "shared/admin_header", locals: {:title => 'Preview', :links => [{:title => 'Edit', :path => edit_admin_portfolio_entry_path(@portfolio_entry)},
+                                                                                    {:title => 'Back', :path => admin_portfolio_entries_path} } %>
 <p>
   <strong>Platform:</strong>
   <% if defined? @portfolio_entry.portfolio_platform.title %><%= @portfolio_entry.portfolio_platform.title %><% end %>
@@ -7,7 +9,7 @@
   <%= @portfolio_entry.title %>
 </p>
 <p>
-  <strong><%= image_tag @portfolio_entry.project_image.url(:original) %></strong>
+  <strong><%= image_tag @portfolio_entry.project_image.url(:original), :style => 'width: 100%' %></strong>
 </p>
 <div class="field">
   <strong>Background Color:</strong>
@@ -33,5 +35,3 @@
       <% end %>
   <% end %>
 </p>
-<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Edit', :path => edit_admin_portfolio_entry_path(@portfolio_entry)},
-                                                                     {:title => 'Back', :path => admin_portfolio_entries_path}] } %>
