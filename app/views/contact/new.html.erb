@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-12 tk-myriad-pro">
       <%= render partial: "shared/header", locals: {:title => 'Contact', :subtitle => 'Get in touch'} %>
-      <p>There are plenty of social channels to reach out to me through, but this one is probably the most direct.</p>
+      <%= markdown(Content.find_by_title('Contact').content) %>
       <hr>
     </div>
   </div>

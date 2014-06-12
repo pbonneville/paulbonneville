@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-12 tk-myriad-pro">
       <%= render partial: "shared/header", locals: {:title => 'Apps', :subtitle => 'My publicly available work'} %>
-      <p>[COPY NEEDED]</p>
+      <%= markdown(Content.find_by_title('Apps').content) %>
     </div>
   </div>
 
