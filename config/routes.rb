@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :admin do
-    resources :portfolio_platforms, :portfolio_entries, :skill_tag_types, :skill_tags, :resume_sections, :resume_entries
+    resources :contents, :portfolio_platforms, :portfolio_entries, :skill_tag_types, :skill_tags, :resume_sections, :resume_entries
   end
 
   get 'home/index'
