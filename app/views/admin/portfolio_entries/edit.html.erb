@@ -1,4 +1,4 @@
-<%= render partial: "shared/admin_header", locals: {:title => 'Editing Portfolio Entry', :links => [{:title => 'List', :path => admin_portfolio_entries_path},
-                                                                                                    {:title => 'Preview', :path => admin_portfolio_entry_path(@portfolio_entry)},
-                                                                                                    {:title => 'New Entry', :path => new_admin_portfolio_entry_path}]} %>
+<%= render partial: "shared/admin_header", locals: {:title => 'Editing Portfolio Entry', :links => [{:title => '<span class="glyphicon glyphicon-th-list"></span>', :path => admin_portfolio_entries_path},
+                                                                                                    {:title => '<span class="glyphicon glyphicon-eye-open"></span>', :path => admin_portfolio_entry_path(@portfolio_entry)},
+                                                                                                    {:title => '<span class="glyphicon glyphicon-plus"></span>', :path => new_admin_portfolio_entry_path}]} %>
 <%= render 'form' %>

@@ -13,7 +13,7 @@ class Admin::PortfolioEntriesController < ApplicationController
   # GET /portfolio_entries/1
   # GET /portfolio_entries/1.json
   def show
-		@portfolio_entry_skill_tags = @resume_entry.skill_tags.order('LOWER(tag)');
+		@portfolio_entry_skill_tags = @portfolio_entry.skill_tags.order('LOWER(tag)');
   end
 
   # GET /portfolio_entries/new

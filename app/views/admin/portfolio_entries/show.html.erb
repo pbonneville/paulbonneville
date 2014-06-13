@@ -1,37 +1,38 @@
-<%= render partial: "shared/admin_header", locals: {:title => 'Preview', :links => [{:title => 'Edit', :path => edit_admin_portfolio_entry_path(@portfolio_entry)},
-                                                                                    {:title => 'Back', :path => admin_portfolio_entries_path} } %>
-<p>
-  <strong>Platform:</strong>
-  <% if defined? @portfolio_entry.portfolio_platform.title %><%= @portfolio_entry.portfolio_platform.title %><% end %>
-</p>
-<p>
-  <strong>Title:</strong>
-  <%= @portfolio_entry.title %>
-</p>
-<p>
-  <strong><%= image_tag @portfolio_entry.project_image.url(:original), :style => 'width: 100%' %></strong>
-</p>
-<div class="field">
-  <strong>Background Color:</strong>
-  <div style="width: 25px; height:25px; margin-bottom: 10px; background-color: <%= @portfolio_entry.backgroundColor %>"></div>
+<%= render partial: "shared/admin_header", locals: {:title => 'Preview', :links => [{:title => '<span class="glyphicon glyphicon-pencil"></span>', :path => edit_admin_portfolio_entry_path(@portfolio_entry)},
+                                                                                    {:title => '<span class="glyphicon glyphicon-th-list"></span>', :path => admin_portfolio_entries_path} ] } %>
+<div class="row" style="padding-bottom: 8px;">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Platform</div>
+    <div class="col-md-10">
+        <% if defined? @portfolio_entry.portfolio_platform.title %><%= @portfolio_entry.portfolio_platform.title %><% end %>
+    </div>
 </div>
-<p>
-  <strong>Role:</strong>
-  <%= @portfolio_entry.role %>
-</p>
-<p>
-  <strong>Overview:</strong>
-  <%= markdown(@portfolio_entry.overview) %>
-</p>
-<p>
-  <strong>Sort Order:</strong>
-  <%= @portfolio_entry.sortOrder %>
-</p>
-<p>
-  <strong>Tags:</strong><br/>
-  <% @portfolio_entry_skill_tags.each do |i| %>
-      <%= i.tag %>
-      <% if i != @portfolio_entry_skill_tags.last %>,
-      <% end %>
-  <% end %>
-</p>
+<div class="row" style="padding-bottom: 8px;">
+  <div class="col-md-2" style="font-weight: bold; text-align: right;">Title</div>
+  <div class="col-md-10"><%= @portfolio_entry.title %></div>
+</div>
+<div class="row" style="padding-bottom: 8px;">
+  <div class="col-md-2" style="font-weight: bold; text-align: right;">Project Image</div>
+  <div class="col-md-10"><%= image_tag @portfolio_entry.project_image.url(:original), :style => 'width: 100%' %></div>
+</div>
+<div class="row" style="padding-bottom: 8px;">
+  <div class="col-md-2" style="font-weight: bold; text-align: right;">Background Color</div>
+  <div class="col-md-10">
+    <div style="width: 25px; height:25px; margin-bottom: 10px; background-color: <%= @portfolio_entry.backgroundColor %>"></div>
+  </div>
+</div>
+<div class="row" style="padding-bottom: 8px;">
+  <div class="col-md-2" style="font-weight: bold; text-align: right;">Role</div>
+  <div class="col-md-10"><%= @portfolio_entry.role %></div>
+</div>
+<div class="row" style="padding-bottom: 8px;">
+  <div class="col-md-2" style="font-weight: bold; text-align: right;">Overview</div>
+  <div class="col-md-10"><%= markdown(@portfolio_entry.overview) %></div>
+</div>
+<div class="row" style="padding-bottom: 8px;">
+  <div class="col-md-2" style="font-weight: bold; text-align: right;">Sort Order</div>
+  <div class="col-md-10"><%= @portfolio_entry.sortOrder %></div>
+</div>
+<div class="row" style="padding-bottom: 8px;">
+  <div class="col-md-2" style="font-weight: bold; text-align: right;">Tags</div>
+  <div class="col-md-10"><% @portfolio_entry_skill_tags.each do |i| %><%= i.tag %><% if i != @portfolio_entry_skill_tags.last %>, <% end %><% end %></div>
+</div>

@@ -38,6 +38,18 @@ $navbar-inverse-link-color: #b9dbfe;
   padding: 20px 0 20px 0;
 }
 
+.affix {
+  position: fixed;
+}
+
+.affix-top {
+  position: static;
+}
+
+.affix-bottom {
+
+}
+
 /*******************************************/
 /* BASE OVERRIDES */
 /*******************************************/
