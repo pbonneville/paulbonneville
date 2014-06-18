@@ -1,4 +1,5 @@
-<%= render partial: "shared/header", locals: {:title => 'Editing User'} %>
+<%= render partial: "shared/admin_header", locals: {:title => admin_title_editing(controller),
+                                                    :links => [{:title => t(:list), :path => users_path},
+                                                               {:title => t(:review), :path => user_path(@user)},
+                                                               {:title => t(:new_entry), :path => new_user_path}]} %>
 <%= render 'form' %>
-<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Show', :path => @user},
-                                                                     {:title => 'Back', :path => users_path}] } %>

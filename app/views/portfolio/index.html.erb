@@ -4,34 +4,34 @@
   <!-- Example row of columns -->
   <div class="row">
     <div class="col-md-12 tk-myriad-pro">
-      <%= render partial: "shared/header", locals: {:title => 'Portfolio', :subtitle => 'The things I\'ve made'} %>
+      <%= render partial: "shared/header", locals: { :title => 'Portfolio', :subtitle => 'The things I\'ve made' } %>
       <%= markdown(Content.find_by_title('Portfolio').content) %>
       <hr>
     </div>
   </div>
   <div style="padding-bottom: 60px;">
-  <% @platforms.order(:sortOrder).each do |platform| %>
-      <div class="row">
-        <div class="col-md-3">
-          <p class="tk-adelle" style="font-size: 22px"><b><%= platform.title %></b></p>
-        </div>
-        <div class="col-md-9">
-          <div class="row">
-            <% platform.portfolio_entries.order(:sortOrder).each_with_index do |entry, i| %>
-                <% if i % 3 == 0 && i > 0 %></div>
-                    <div class="row">
-                <% end %>
-                <div class="col-md-4" style="margin: 0; padding: 0">
-                  <div class="thumbnail">
-                    <a style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;" href="#project<%= i %><%= platform.title %>" name="thumb<%= i %><%= platform.title %>" class=""><%= image_tag entry.project_image.url(:thumb) %></a>
-                    <div class="tk-adelle" style="margin: 0 auto; width: 310px; padding-left: 10px; font-weight:bold; color: #fff; margin-top: -30px;"><%= entry.title %></div>
+    <% @platforms.order(:sortOrder).each do |platform| %>
+        <div class="row">
+          <div class="col-md-3">
+            <p class="tk-adelle" style="font-size: 22px"><b><%= platform.title %></b></p>
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+              <% platform.portfolio_entries.order(:sortOrder).each_with_index do |entry, i| %>
+                  <% if i % 3 == 0 && i > 0 %></div>
+                  <div class="row">
+                  <% end %>
+                  <div class="col-md-4" style="margin: 0; padding: 0">
+                    <div class="thumbnail">
+                      <a style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;" href="#project<%= i %><%= platform.title %>" name="thumb<%= i %><%= platform.title %>" class=""><%= image_tag entry.project_image.url(:thumb) %></a>
+                      <div class="tk-adelle" style="margin: 0 auto; width: 310px; padding-left: 10px; font-weight:bold; color: #fff; margin-top: -30px;"><%= entry.title %></div>
+                    </div>
                   </div>
-                </div>
-            <% end %>
+              <% end %>
+              </div>
             </div>
-            </div>
-      </div>
-  <% end %>
+        </div>
+    <% end %>
   </div>
   <% @platforms.order(:sortOrder).each do |platform| %>
       <% platform.portfolio_entries.order(:sortOrder).each_with_index do |entry, i| %>
@@ -43,17 +43,10 @@
                     <h3 class="tk-adelle" style="font-weight:bold;"><%= entry.title %></h3>
                     <h4 class="tk-myriad-pro"><%= entry.role %></span></h4>
                     <div class="tk-myriad-pro" style="margin: 25px 0 25px 0"><%= markdown(entry.overview) %></div>
-
                     <% if !entry.skill_tags.empty? %>
-                        <div style="margin: 20px 0 25px 0">
-                          <% entry.skill_tags.order("skill_tag_type_id ASC, tag ASC").each do |tag| %>
-                              <span class="label <%= tag.skill_tag_type.tagType == ('Technology') ? 'label-success' : 'label-primary' %>"><%= tag.tag %></span>
-                          <% end %>
-                        </div>
+                        <div style="margin: 20px 0 25px 0"><% entry.skill_tags.order("skill_tag_type_id ASC, tag ASC").each do |tag| %><span class="label <%= tag.skill_tag_type.tagType == ('Technology') ? 'label-success' : 'label-primary' %>"><%= tag.tag %></span><% end %></div>
                     <% end %>
-
-                    <div style="opacity:0.3"><a class="btn btn-default" style="color: #666;" href="#thumb<%= i %><%= platform.title %>"><span class="glyphicon glyphicon-chevron-up"></span></a>
-                    </div>
+                    <div style="opacity:0.3"><a class="btn btn-default" style="color: #666;" href="#thumb<%= i %><%= platform.title %>"><span class="glyphicon glyphicon-chevron-up"></span></a></div>
                   </div>
                 </div>
               </div>

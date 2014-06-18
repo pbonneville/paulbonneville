@@ -1,25 +1,49 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
+<% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@portfolio_entry.errors.count, "error") %> prohibited this portfolio_entry from being
+        saved:</h2>
 
       <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @portfolio_entry.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
 
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :approved %><br>
-    <%= f.check_box :approved %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs tk-myriad-pro">
+  <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+</ul>
+
+<%= form_for(@user) do |f| %>
+    <div class="row" style="margin-bottom: 20px;">
+      <div class="col-md-9 tk-myriad-pro">
+        <div class="tab-content" style="padding-top: 20px;">
+          <div class="tab-pane active" id="general">
+            <div class="field">
+              <%= f.label :email %>
+              <%= f.text_field :email %>
+            </div>
+            <div class="field">
+              <%= f.label :approved %>
+              <%= f.check_box :approved %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 tk-myriad-pro">
+        <%= f.submit :class => 'btn btn-block btn-success btn-lg' %>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= f.label 'Created' %>
+            <%= @user.created_at %>
+          </li>
+          <li class="list-group-item">
+            <%= f.label 'Last Updated' %>
+            <%= @user.updated_at %>
+          </li>
+        </ul>
+      </div>
+    </div>
 <% end %>

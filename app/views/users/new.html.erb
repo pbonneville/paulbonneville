@@ -1,3 +1,2 @@
-<%= render partial: "shared/header", locals: {:title => 'New User'} %>
+<%= render partial: "shared/admin_header", locals: {:title => admin_label_new_entry(controller) , :links => [{:title => t(:list), :path => users_path}] } %>
 <%= render 'form' %>
-<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Back', :path => users_path}] } %>

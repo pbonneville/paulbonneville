@@ -1,11 +1,11 @@
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Approved:</strong>
-  <%= @user.approved %>
-</p>
-<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Edit', :path => edit_user_path(@user)},
-                                                                     {:title => 'Back', :path => users_path}] } %>
+<%= render partial: "shared/admin_header", locals: {:title => admin_title_reviewing(controller),
+                                                    :links => [{:title => t(:edit), :path => edit_user_path(@user)},
+                                                               {:title => t(:list), :path => users_path} ] } %>
+<div class="row" style="padding-bottom: 8px;">
+  <div class="col-md-2" style="font-weight: bold; text-align: right;">E-mail</div>
+  <div class="col-md-10"><%= @user.email %></div>
+</div>
+<div class="row" style="padding-bottom: 8px;">
+  <div class="col-md-2" style="font-weight: bold; text-align: right;">Approved:</div>
+  <div class="col-md-10"><%= @user.approved %></div>
+</div>

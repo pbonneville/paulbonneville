@@ -20,4 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  edit: "Edit"
+  delete: "Delete"
+  list: "List"
+  listing: "Listing"
+  editing: "Editing"
+  reviewing: "Reviewing"
+  review: "Review"
+  new: "New"
+  are_you_sure: "Are you sure?"

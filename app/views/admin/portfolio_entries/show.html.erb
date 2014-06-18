@@ -1,5 +1,6 @@
-<%= render partial: "shared/admin_header", locals: {:title => 'Preview', :links => [{:title => '<span class="glyphicon glyphicon-pencil"></span>', :path => edit_admin_portfolio_entry_path(@portfolio_entry)},
-                                                                                    {:title => '<span class="glyphicon glyphicon-th-list"></span>', :path => admin_portfolio_entries_path} ] } %>
+<%= render partial: "shared/admin_header", locals: {:title => admin_title_reviewing(controller),
+                                                    :links => [{:title => t(:edit), :path => edit_admin_portfolio_entry_path(@portfolio_entry)},
+                                                               {:title => t(:list), :path => admin_portfolio_entries_path} ] } %>
 <div class="row" style="padding-bottom: 8px;">
     <div class="col-md-2" style="font-weight: bold; text-align: right;">Platform</div>
     <div class="col-md-10">

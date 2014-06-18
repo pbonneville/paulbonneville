@@ -1,12 +1,12 @@
 <!-- Alerts and Notices -->
 <% if notice.nil? or alert.nil? %>
     <% unless notice.nil? %>
-        <div class="alert alert-success" data-dismiss="alert" style="margin-bottom:0">
+        <div id="notice" class="alert alert-temp alert-success fade in" data-dismiss="alert" style="margin-bottom:0">
           <div class="container"><i class="glyphicon glyphicon-remove"></i> <%= notice %></div>
         </div>
     <% end %>
     <% unless alert.nil? %>
-        <div class="alert alert-success" data-dismiss="alert" style="margin-bottom:0">
+        <div id="notice" class="alert alert-temp alert-danger fade in" data-dismiss="alert" style="margin-bottom:0">
           <div class="container"><i class="glyphicon glyphicon-remove"></i> <%= alert %></div>
         </div>
     <% end %>

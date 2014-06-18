@@ -44,6 +44,10 @@ class Admin::PortfolioEntriesController < ApplicationController
   # PATCH/PUT /portfolio_entries/1
   # PATCH/PUT /portfolio_entries/1.json
   def update
+		if @portfolio_entry.project_image
+
+		end
+
     respond_to do |format|
       if @portfolio_entry.update(portfolio_entry_params)
         format.html { redirect_to :edit_admin_portfolio_entry, notice: 'Portfolio entry was successfully updated.' }

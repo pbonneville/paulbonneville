@@ -1,2 +1,3 @@
-<%= render partial: "shared/admin_header", locals: {:title => 'New Entry', :links => [{:title => '<span class="glyphicon glyphicon-th-list"></span>', :path => admin_portfolio_entries_path}] } %>
+<%= render partial: "shared/admin_header", locals: {:title => admin_label_new_entry(controller),
+                                                    :links => [{:title => t(:list), :path => admin_portfolio_entries_path}] } %>
 <%= render 'form' %>
