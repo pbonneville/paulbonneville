@@ -37,7 +37,23 @@
             </div>
             <div class="field">
               <%= f.label 'Overview' %>
-              <%= f.text_area :overview %>
+
+              <ul class="nav nav-tabs tk-myriad-pro">
+                <li class="active"><a href="#write" data-toggle="pill">Write</a></li>
+                <li><a href="#preview" data-toggle="tab">Preview</a></li>
+              </ul>
+
+
+              <div class="tab-content" style="padding-top: 20px;">
+                <div class="tab-pane active" id="write">
+                  <div id="wmd-button-bar-overview"></div>
+                  <%= f.text_area :overview, :id => 'wmd-input-overview', :class => 'wmd-input' %>
+                </div>
+                <div class="tab-pane" id="preview">
+                  <div id="wmd-preview-overview" class="wmd-preview"></div>
+                </div>
+              </div>
+
             </div>
           </div>
           <div class="tab-pane" id="background">
@@ -45,11 +61,11 @@
               <%= f.label 'Background Image' %>
               <%= image_tag @portfolio_entry.project_image.url(:original), :style => 'width: 100%' %>
               <div class="well">
-              <% if @portfolio_entry.project_image.exists? %>
-                  <%= f.check_box(:project_image_delete) %> Delete?
-              <% else %>
-                  <%= f.file_field :project_image %>
-              <% end %>
+                <% if @portfolio_entry.project_image.exists? %>
+                    <%= f.check_box(:project_image_delete) %> Delete?
+                <% else %>
+                    <%= f.file_field :project_image %>
+                <% end %>
               </div>
             </div>
             <div class="field">
@@ -60,7 +76,7 @@
           <div class="tab-pane" id="tags">
             <div class="well">
               <%= collection_check_boxes(:portfolio_entry, :skill_tag_ids, SkillTag.all.order('LOWER(tag)'), :id, :tag) do |b|
-                content_tag(:div, :class => "form_checkbox_container") { b.check_box + ' ' + b.text }
+                 content_tag(:div, :class => "form_checkbox_container") { b.check_box + ' ' + b.text }
               end %>
             </div>
           </div>
@@ -68,20 +84,20 @@
       </div>
       <div class="col-md-3 tk-myriad-pro">
         <%= f.submit :class => 'btn btn-block btn-success btn-lg' %>
-          <ul class="list-group">
-            <li class="list-group-item">
-              <%= f.label 'Sort Order' %>
-              <%= f.number_field :sortOrder %>
-            </li>
-            <li class="list-group-item">
-              <%= f.label 'Created' %>
-              <%= @portfolio_entry.created_at %>
-            </li>
-            <li class="list-group-item">
-              <%= f.label 'Last Updated' %>
-              <%= @portfolio_entry.updated_at %>
-            </li>
-          </ul>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= f.label 'Sort Order' %>
+            <%= f.number_field :sortOrder %>
+          </li>
+          <li class="list-group-item">
+            <%= f.label 'Created' %>
+            <%= @portfolio_entry.created_at %>
+          </li>
+          <li class="list-group-item">
+            <%= f.label 'Last Updated' %>
+            <%= @portfolio_entry.updated_at %>
+          </li>
+        </ul>
       </div>
     </div>
 <% end %>

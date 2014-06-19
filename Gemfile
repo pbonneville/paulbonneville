@@ -6,8 +6,9 @@ gem 'unicorn'
 # Keeps local environment and setting variable in application.yml
 gem 'figaro'
 
-# Markdown parser
+# Markdown parser and editor
 gem 'redcarpet'
+gem 'pagedown-bootstrap-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
