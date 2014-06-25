@@ -1,0 +1,15 @@
+<div style="background: url(/img/jumbotronbackground.jpg) no-repeat top; width: 100%; height: 50px;"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <%= render partial: "shared/header", locals: { :title => @entry.title } %>
+      <div class="blog-excerpt"><%= @entry.excerpt %></div>
+      <div class="blog-publish-date"><%= @entry.publish_at %></div>
+      <p><%= markdown(@entry.body) %></p>
+      <%= link_to 'Back', blog_path, :class => 'btn btn-default' %>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>

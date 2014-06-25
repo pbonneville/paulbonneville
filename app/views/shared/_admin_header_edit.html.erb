@@ -1,0 +1,4 @@
+<%= render partial: "shared/admin_header", locals: {:title => admin_title_editing(controller),
+                                                    :links => [{:title => t(:list), :path => "/#{controller_path}"},
+                                                               {:title => t(:review), :path => (defined? review_link_path) ? review_link_path : polymorphic_path([:admin, @parent, model])},
+                                                               {:title => admin_label_new_entry(controller), :path => (defined? new_link_path) ? new_link_path : new_polymorphic_path([:admin, model]) }]} %>

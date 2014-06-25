@@ -1,23 +1,34 @@
-<%= render partial: "shared/header", locals: {:title => 'Listing Skill Tag Types'} %>
-<table>
-  <thead>
-  <tr>
-    <th>Type</th>
-    <th>Sort Order</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @skill_tag_types.each do |skill_tag_type| %>
-      <tr>
-        <td><%= skill_tag_type.tagType %></td>
-        <td><%= skill_tag_type.sortOrder %></td>
-        <td><%= link_to 'Show', admin_skill_tag_type_path(skill_tag_type) %></td>
-        <td><%= link_to 'Edit', edit_admin_skill_tag_type_path(skill_tag_type) %></td>
-        <td><%= link_to 'Destroy', admin_skill_tag_type_path(skill_tag_type), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'New Skill Tag', :path => new_admin_skill_tag_type_path}] } %>
+<%= render partial: "shared/admin_header_index", locals: { :model => @skill_tag_types.first } %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <table class="admin">
+        <thead>
+        <tr>
+          <th>Type</th>
+          <th>Sort Order</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @skill_tag_types.each do |skill_tag_type| %>
+            <tr class="admin_tr" data-link="<%= edit_admin_skill_tag_type_path(skill_tag_type) %>">
+              <td><%= skill_tag_type.tagType %></td>
+              <td><%= skill_tag_type.sortOrder %></td>
+              <td>
+                <div class="index-actions">
+                  <%= link_to t(:edit), edit_admin_skill_tag_type_path(skill_tag_type), :class => 'btn btn-primary btn-xs' %>
+                  <%= link_to t(:review), admin_skill_tag_type_path(skill_tag_type), :class => 'btn btn-primary btn-xs' %>
+                  <%= link_to t(:delete), admin_skill_tag_type_path(skill_tag_type), method: :delete, data: { confirm: t(:are_you_sure) }, :class => 'btn btn-danger btn-xs' %>
+                </div>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= render partial: "shared/admin_index_table_panel_footer", locals: { :entry_objects => @skill_tag_types } %>
+    </div>
+    <div class="pagination-controls"><%= will_paginate(@skill_tag_types) %></div>
+  </div>
+</div>
 

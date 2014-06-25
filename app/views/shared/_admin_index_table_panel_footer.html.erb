@@ -1,0 +1,4 @@
+<div class="panel-footer" style="overflow: auto;">
+  <div style="float: right">Entries per page: <%= select_tag :per_page, options_for_select(Constants::PAGINATION_PER_PAGE_AMOUNTS,  WillPaginate.per_page), :onchange => "if(this.value){window.location='?per_page='+this.value;}" %></div>
+  <div style="float: left"><%= page_entries_info entry_objects, :model => 'entries' %></div>
+</div>

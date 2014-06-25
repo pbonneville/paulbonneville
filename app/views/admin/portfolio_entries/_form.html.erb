@@ -1,27 +1,18 @@
 <% if @portfolio_entry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@portfolio_entry.errors.count, "error") %> prohibited this portfolio_entry from being
-        saved:</h2>
-
-      <ul>
-        <% @portfolio_entry.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render partial: "shared/admin_form_errors", locals: {:entry_errors => @portfolio_entry.errors} %>
 <% end %>
 
 <!-- Nav tabs -->
-<ul class="nav nav-tabs tk-myriad-pro">
+<ul class="nav nav-tabs">
   <li class="active"><a href="#general" data-toggle="tab">General</a></li>
   <li><a href="#background" data-toggle="tab">Background</a></li>
   <li><a href="#tags" data-toggle="tab">Tags</a></li>
 </ul>
 
-<%= form_for(@portfolio_entry, :url => url_for([:admin, @portfolio_entry])) do |f| %>
-    <div class="row" style="margin-bottom: 20px;">
-      <div class="col-md-9 tk-myriad-pro">
-        <div class="tab-content" style="padding-top: 20px;">
+<%= form_for(@portfolio_entry, :url => url_for([:admin, @portfolio_entry]), :html => {:class => 'admin'}) do |f| %>
+    <div class="row admin-row">
+      <div class="col-md-9">
+        <div class="tab-content admin-tab-content">
           <div class="tab-pane active" id="general">
             <div class="field">
               <%= f.label 'Title' %>
@@ -37,23 +28,7 @@
             </div>
             <div class="field">
               <%= f.label 'Overview' %>
-
-              <ul class="nav nav-tabs tk-myriad-pro">
-                <li class="active"><a href="#write" data-toggle="pill">Write</a></li>
-                <li><a href="#preview" data-toggle="tab">Preview</a></li>
-              </ul>
-
-
-              <div class="tab-content" style="padding-top: 20px;">
-                <div class="tab-pane active" id="write">
-                  <div id="wmd-button-bar-overview"></div>
-                  <%= f.text_area :overview, :id => 'wmd-input-overview', :class => 'wmd-input' %>
-                </div>
-                <div class="tab-pane" id="preview">
-                  <div id="wmd-preview-overview" class="wmd-preview"></div>
-                </div>
-              </div>
-
+              <%= render partial: "shared/admin_form_markup_field", locals: { :field_variable => f, :markup_field => :overview } %>
             </div>
           </div>
           <div class="tab-pane" id="background">
@@ -82,12 +57,12 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 tk-myriad-pro">
+      <div class="col-md-3">
         <%= f.submit :class => 'btn btn-block btn-success btn-lg' %>
         <ul class="list-group">
           <li class="list-group-item">
             <%= f.label 'Sort Order' %>
-            <%= f.number_field :sortOrder %>
+            <%= f.number_field :sortOrder, :value => @portfolio_entry.sortOrder.blank? ? PortfolioEntry.count + 1 : @portfolio_entry.sortOrder %>
           </li>
           <li class="list-group-item">
             <%= f.label 'Created' %>

@@ -1,0 +1,5 @@
+class Constants
+
+	PAGINATION_PER_PAGE_AMOUNTS = [10,25,50,100]
+
+end

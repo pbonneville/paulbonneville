@@ -1,25 +1,14 @@
-<% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@portfolio_entry.errors.count, "error") %> prohibited this portfolio_entry from being
-        saved:</h2>
-
-      <ul>
-        <% @portfolio_entry.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
+<%= render partial: "shared/admin_form_errors", locals: {:entry_errors => @user.errors} %>
 
 <!-- Nav tabs -->
-<ul class="nav nav-tabs tk-myriad-pro">
+<ul class="nav nav-tabs">
   <li class="active"><a href="#general" data-toggle="tab">General</a></li>
 </ul>
 
-<%= form_for(@user) do |f| %>
-    <div class="row" style="margin-bottom: 20px;">
-      <div class="col-md-9 tk-myriad-pro">
-        <div class="tab-content" style="padding-top: 20px;">
+<%= form_for @user, :html => {:class => 'admin'} do |f| %>
+    <div class="row admin-row">
+      <div class="col-md-9">
+        <div class="tab-content admin-tab-content">
           <div class="tab-pane active" id="general">
             <div class="field">
               <%= f.label :email %>
@@ -32,7 +21,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 tk-myriad-pro">
+      <div class="col-md-3">
         <%= f.submit :class => 'btn btn-block btn-success btn-lg' %>
         <ul class="list-group">
           <li class="list-group-item">

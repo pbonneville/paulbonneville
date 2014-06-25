@@ -1,25 +1,38 @@
-<%= form_for(@portfolio_platform, :url => url_for([:admin, @portfolio_platform])) do |f| %>
-  <% if @portfolio_platform.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@portfolio_platform.errors.count, "error") %> prohibited this portfolio_platform from being saved:</h2>
+<%= render partial: "shared/admin_form_errors", locals: { :entry_errors => @portfolio_platform.errors } %>
 
-      <ul>
-      <% @portfolio_platform.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+</ul>
+
+<%= form_for(@portfolio_platform, :url => url_for([:admin, @portfolio_platform]), :html => { :class => 'admin' }) do |f| %>
+    <div class="row admin-row">
+      <div class="col-md-9">
+        <div class="tab-content admin-tab-content">
+          <div class="tab-pane active" id="general">
+            <div class="field">
+              <%= f.label :title %>
+              <%= f.text_field :title %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 tk-myriad-pro">
+        <%= f.submit :class => 'btn btn-block btn-success btn-lg' %>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= f.label 'Sort Order' %>
+            <%= f.number_field :sortOrder, :value => @portfolio_platform.sortOrder.blank? ? PortfolioPlatform.count + 1 : @portfolio_platform.sortOrder %>
+          </li>
+          <li class="list-group-item">
+            <%= f.label 'Created' %>
+            <%= @portfolio_platform.created_at %>
+          </li>
+          <li class="list-group-item">
+            <%= f.label 'Last Updated' %>
+            <%= @portfolio_platform.updated_at %>
+          </li>
+        </ul>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label 'Sort Order' %><br>
-    <%= f.number_field :sortOrder %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

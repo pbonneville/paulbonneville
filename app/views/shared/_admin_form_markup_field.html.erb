@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#write" data-toggle="pill">Write</a></li>
+  <li><a href="#preview" data-toggle="tab">Preview</a></li>
+</ul>
+<div class="tab-content admin-tab-content">
+  <div class="tab-pane active" id="write">
+    <div id="wmd-button-bar-<%= markup_field %>"></div>
+    <%= field_variable.text_area markup_field, :id => "wmd-input-#{markup_field}", :class => 'wmd-input' %>
+  </div>
+  <div class="tab-pane" id="preview">
+    <div id="wmd-preview-<%= markup_field %>" class="wmd-preview"></div>
+  </div>
+</div>

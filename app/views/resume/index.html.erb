@@ -3,7 +3,7 @@
 <div class="container">
   <!-- Example row of columns -->
   <div class="row">
-    <div class="col-md-12 tk-myriad-pro">
+    <div class="col-md-12">
       <%= render partial: "shared/header", locals: {:title => 'Resume', :subtitle => "The things I've done"} %>
       <%= markdown(Content.find_by_title('Resume').content) %>
       <hr>
@@ -17,7 +17,7 @@
         <div class="col-md-10">
           <% section.resume_entries.order(:sortOrder).each do |entry| %>
               <div>
-                <h4 class="tk-myriad-pro">
+                <h4>
                   <strong>
                     <span class="cleanBreakBlock"><%= entry.title %>,</span>
                     <% if !entry.organizationURL.blank? %>
@@ -32,15 +32,13 @@
                     <small><%= raw entry.location %></small>
                   </div>
                 </h4>
-                <div class="tk-myriad-pro">
-                  <%= markdown(entry.description) %>
-                </div>
+                <div><%= markdown(entry.description) %></div>
                 <% if !entry.skill_tags.empty? %>
-                    <div class="well">
-                      <% entry.skill_tags.order("skill_tag_type_id ASC, tag ASC").each do |tag| %>
-                          <span class="label <%= tag.skill_tag_type.tagType == ('Technology') ? 'label-success' : 'label-primary' %>"><%= tag.tag %></span>
-                      <% end %>
-                    </div>
+                <div class="well">
+                  <% entry.skill_tags.order("skill_tag_type_id ASC, tag ASC").each do |tag| %>
+                      <span class="label <%= tag.skill_tag_type.tagType == ('Technology') ? 'label-success' : 'label-primary' %>"><%= tag.tag %></span>
+                  <% end %>
+                </div>
                 <% end %>
               </div>
               <hr>

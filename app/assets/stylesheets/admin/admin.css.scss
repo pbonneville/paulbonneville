@@ -1,0 +1,54 @@
+table.admin {
+  width: 100%;
+  font-size: 16px;
+  font-family: "myriad pro";
+  padding: 4px;
+
+  th {
+    padding: 3px 2px 0 9px;
+    font-weight: normal;
+    font-size: 12px;
+    color: #999;
+    background-color: #f5f5f5;
+  }
+
+
+  td {
+    padding: 5px 6px 5px 9px;
+    font-size: 16px;
+    border-top: 1px solid #ddd;
+
+  }
+}
+
+.field {
+  padding-bottom: 8px;
+}
+
+.admin-row {
+  margin-bottom: 20px;
+}
+
+.admin-tab-content {
+  padding-top: 20px;
+}
+
+.highlight {
+  background-color: #fbfbfb;
+  color: #438dc7;
+}
+
+.index-actions {
+  float: right;
+}
+
+.pagination-controls {
+  float: right;
+}
+
+.field_with_errors {
+  border: 1px solid #ff0000;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}

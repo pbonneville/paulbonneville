@@ -1,4 +1,2 @@
-<%= render partial: "shared/header", locals: {:title => 'Editing Portfolio Platform'} %>
+<%= render partial: "shared/admin_header_edit", :locals => {:model => @portfolio_platform} %>
 <%= render 'form' %>
-<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Show', :path => admin_portfolio_platform_path(@portfolio_platform)},
-                                                                     {:title => 'Back', :path => admin_portfolio_platforms_path}] } %>

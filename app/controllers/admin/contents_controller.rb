@@ -7,7 +7,26 @@ class Admin::ContentsController < ApplicationController
 		# GET /contents
 		# GET /contents.json
 		def index
-			@contents = Content.all
+			if params.has_key?(:page)
+				@page                           = params[:page]
+				session[:pagination_page]       = @page
+				session[:pagination_controller] = controller_name
+			else
+				if session.has_key?(:pagination_page)
+					if (session[:pagination_controller] == controller_name)
+						@page = session[:pagination_page]
+					end
+				end
+			end
+
+			if params.has_key?(:per_page)
+				WillPaginate.per_page = (params[:per_page] == t(:all)) ? PortfolioEntry.count : params[:per_page]
+			else
+				if (!defined? WillPaginate.per_page)
+					WillPaginate.per_page = Constants::PAGINATION_PER_PAGE_AMOUNTS.first
+				end
+			end
+			@contents = Content.paginate(:page => @page, :per_page => WillPaginate.per_page)
 		end
 
 		# GET /contents/1
@@ -31,7 +50,7 @@ class Admin::ContentsController < ApplicationController
 
 			respond_to do |format|
 				if @content.save
-					format.html { redirect_to :edit_admin_content, notice: 'Content was successfully created.' }
+					format.html { redirect_to edit_admin_content_path(@content), notice: 'Content was successfully created.' }
 					format.json { render :show, status: :created, location: @content }
 				else
 					format.html { render :new }

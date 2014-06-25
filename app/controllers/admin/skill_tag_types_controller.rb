@@ -1,77 +1,96 @@
 class Admin::SkillTagTypesController < ApplicationController
-  before_filter :authenticate_user!
-  before_action :set_skill_tag_type, only: [:show, :edit, :update, :destroy]
+	before_filter :authenticate_user!
+	before_action :set_skill_tag_type, only: [:show, :edit, :update, :destroy]
 
-  layout 'admin'
+	layout 'admin'
 
-  # GET /skill_tag_types
-  # GET /skill_tag_types.json
-  def index
-    @skill_tag_types = SkillTagType.all.order(:sortOrder)
-  end
+	# GET /skill_tag_types
+	# GET /skill_tag_types.json
+	def index
+		if params.has_key?(:page)
+			@page                           = params[:page]
+			session[:pagination_page]       = @page
+			session[:pagination_controller] = controller_name
+		else
+			if session.has_key?(:pagination_page)
+				if (session[:pagination_controller] == controller_name)
+					@page = session[:pagination_page]
+				end
+			end
+		end
 
-  # GET /skill_tag_types/1
-  # GET /skill_tag_types/1.json
-  def show
-  end
+		if params.has_key?(:per_page)
+			WillPaginate.per_page = (params[:per_page] == t(:all)) ? SkillTagType.count : params[:per_page]
+		else
+			if (!defined? WillPaginate.per_page)
+				WillPaginate.per_page = Constants::PAGINATION_PER_PAGE_AMOUNTS.first
+			end
+		end
+		@skill_tag_types = SkillTagType.paginate(:page => @page, :per_page => WillPaginate.per_page).order(:sortOrder)
+	end
 
-  # GET /skill_tag_types/new
-  def new
-    @skill_tag_type = SkillTagType.new
-  end
+	# GET /skill_tag_types/1
+	# GET /skill_tag_types/1.json
+	def show
+	end
 
-  # GET /skill_tag_types/1/edit
-  def edit
-  end
+	# GET /skill_tag_types/new
+	def new
+		@skill_tag_type = SkillTagType.new
+	end
 
-  # POST /skill_tag_types
-  # POST /skill_tag_types.json
-  def create
-    @skill_tag_type = SkillTagType.new(skill_tag_type_params)
+	# GET /skill_tag_types/1/edit
+	def edit
+	end
 
-    respond_to do |format|
-      if @skill_tag_type.save
-        format.html { redirect_to :edit_admin_skill_tag_type, notice: 'Skill tag type was successfully created.' }
-        format.json { render :show, status: :created, location: @skill_tag_type }
-      else
-        format.html { render :new }
-        format.json { render json: @skill_tag_type.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+	# POST /skill_tag_types
+	# POST /skill_tag_types.json
+	def create
+		@skill_tag_type = SkillTagType.new(skill_tag_type_params)
 
-  # PATCH/PUT /skill_tag_types/1
-  # PATCH/PUT /skill_tag_types/1.json
-  def update
-    respond_to do |format|
-      if @skill_tag_type.update(skill_tag_type_params)
-        format.html { redirect_to :edit_admin_skill_tag_type, notice: 'Skill tag type was successfully updated.' }
-        format.json { render :show, status: :ok, location: @skill_tag_type }
-      else
-        format.html { render :edit }
-        format.json { render json: @skill_tag_type.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+		respond_to do |format|
+			if @skill_tag_type.save
+				format.html { redirect_to edit_admin_skill_tag_type_path(@skill_tag_type), notice: 'Skill tag type was successfully created.' }
+				format.json { render :show, status: :created, location: @skill_tag_type }
+			else
+				format.html { render :new }
+				format.json { render json: @skill_tag_type.errors, status: :unprocessable_entity }
+			end
+		end
+	end
 
-  # DELETE /skill_tag_types/1
-  # DELETE /skill_tag_types/1.json
-  def destroy
-    @skill_tag_type.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_skill_tag_types_url, notice: 'Skill tag type was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+	# PATCH/PUT /skill_tag_types/1
+	# PATCH/PUT /skill_tag_types/1.json
+	def update
+		respond_to do |format|
+			if @skill_tag_type.update(skill_tag_type_params)
+				format.html { redirect_to :edit_admin_skill_tag_type, notice: 'Skill tag type was successfully updated.' }
+				format.json { render :show, status: :ok, location: @skill_tag_type }
+			else
+				format.html { render :edit }
+				format.json { render json: @skill_tag_type.errors, status: :unprocessable_entity }
+			end
+		end
+	end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_skill_tag_type
-      @skill_tag_type = SkillTagType.find(params[:id])
-    end
+	# DELETE /skill_tag_types/1
+	# DELETE /skill_tag_types/1.json
+	def destroy
+		@skill_tag_type.destroy
+		respond_to do |format|
+			format.html { redirect_to admin_skill_tag_types_url, notice: 'Skill tag type was successfully destroyed.' }
+			format.json { head :no_content }
+		end
+	end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def skill_tag_type_params
-      params.require(:skill_tag_type).permit(:tagType, :sortOrder)
-    end
+	private
+	# Use callbacks to share common setup or constraints between actions.
+	def set_skill_tag_type
+		@skill_tag_type = SkillTagType.find(params[:id])
+	end
+
+	# Never trust parameters from the scary internet, only allow the white list through.
+	def skill_tag_type_params
+		params.require(:skill_tag_type).permit(:tagType, :sortOrder)
+	end
 end

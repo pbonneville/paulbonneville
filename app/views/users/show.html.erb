@@ -1,11 +1,12 @@
-<%= render partial: "shared/admin_header", locals: {:title => admin_title_reviewing(controller),
-                                                    :links => [{:title => t(:edit), :path => edit_user_path(@user)},
-                                                               {:title => t(:list), :path => users_path} ] } %>
-<div class="row" style="padding-bottom: 8px;">
-  <div class="col-md-2" style="font-weight: bold; text-align: right;">E-mail</div>
-  <div class="col-md-10"><%= @user.email %></div>
-</div>
-<div class="row" style="padding-bottom: 8px;">
-  <div class="col-md-2" style="font-weight: bold; text-align: right;">Approved:</div>
-  <div class="col-md-10"><%= @user.approved %></div>
-</div>
+<%= render partial: "shared/admin_header_show", locals: { :edit_link_path => edit_polymorphic_path([@parent, @user]) } %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <label>E-mail</label>
+    <div><%= @user.email %></div>
+  </li>
+  <li class="list-group-item">
+    <label>Approved</label>
+    <div><%= @user.approved %></div>
+  </li>
+</ul>
+

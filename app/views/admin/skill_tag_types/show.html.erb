@@ -1,6 +1,7 @@
-<p>
-  <strong>Type:</strong>
-  <%= @skill_tag_type.tagType %>
-</p>
-<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Edit', :path => edit_admin_skill_tag_type_path(@skill_tag_type)},
-                                                                     {:title => 'Back', :path => admin_skill_tag_types_path}] } %>
+<%= render partial: "shared/admin_header_show", locals: { :model => @skill_tag_type} %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <label>Title</label>
+    <div><%= @skill_tag_type.tagType %></div>
+  </li>
+</ul>

@@ -1,29 +1,27 @@
 class PortfolioEntry < ActiveRecord::Base
-  belongs_to :portfolio_platform
+	before_save :destroy_image?
+
+	belongs_to :portfolio_platform
 	has_and_belongs_to_many :skill_tags
+	has_attached_file :project_image, styles: {
+		thumb: '340x170>',
+		full:  '970x485>'
+	},                :default_url            => "/img/thumb.jpg"
 
-  before_save :destroy_image?
+	validates_attachment_content_type :project_image, :content_type => /\Aimage\/.*\Z/
+	validates :title, :portfolio_platform_id, presence: true;
 
-  # This method associates the attribute ":avatar" with a file attachment
-  has_attached_file :project_image, styles: {
-      thumb: '340x170>',
-      full: '970x485>'
-  }, :default_url => "/img/thumb.jpg"
+	def project_image_delete
+		@project_image_delete ||= "0"
+	end
 
-  # Validate the attached image is image/jpg, image/png, etc
-  validates_attachment_content_type :project_image, :content_type => /\Aimage\/.*\Z/
+	def project_image_delete=(value)
+		@project_image_delete = value
+	end
 
-  def project_image_delete
-    @project_image_delete ||= "0"
-  end
-
-  def project_image_delete=(value)
-    @project_image_delete = value
-  end
-
-  private
-  def destroy_image?
-    self.project_image.clear if @project_image_delete == "1"
-  end
+	private
+	def destroy_image?
+		self.project_image.clear if @project_image_delete == "1"
+	end
 
 end

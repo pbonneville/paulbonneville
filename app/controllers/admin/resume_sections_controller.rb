@@ -7,7 +7,27 @@ class Admin::ResumeSectionsController < ApplicationController
   # GET /resume_sections
   # GET /resume_sections.json
   def index
-    @resume_sections = ResumeSection.all.order(:sortOrder)
+	  if params.has_key?(:page)
+		  @page                           = params[:page]
+		  session[:pagination_page]       = @page
+		  session[:pagination_controller] = controller_name
+	  else
+		  if session.has_key?(:pagination_page)
+			  if (session[:pagination_controller] == controller_name)
+				  @page = session[:pagination_page]
+			  end
+		  end
+	  end
+
+	  if params.has_key?(:per_page)
+		  WillPaginate.per_page = (params[:per_page] == t(:all)) ? PortfolioEntry.count : params[:per_page]
+	  else
+		  if (!defined? WillPaginate.per_page)
+			  WillPaginate.per_page = Constants::PAGINATION_PER_PAGE_AMOUNTS.first
+		  end
+	  end
+
+    @resume_sections = ResumeSection.paginate(:page => @page, :per_page => WillPaginate.per_page).order(:sortOrder)
   end
 
   # GET /resume_sections/1
@@ -31,7 +51,7 @@ class Admin::ResumeSectionsController < ApplicationController
 
     respond_to do |format|
       if @resume_section.save
-        format.html { redirect_to :edit_admin_resume_section, notice: 'Resume section was successfully created.' }
+        format.html { redirect_to edit_admin_resume_section_path(@resume_section), notice: 'Resume section was successfully created.' }
         format.json { render :show, status: :created, location: @resume_section }
       else
         format.html { render :new }

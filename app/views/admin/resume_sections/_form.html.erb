@@ -1,27 +1,38 @@
-<%= form_for(@resume_section, :url => url_for([:admin, @resume_section])) do |f| %>
-    <% if @resume_section.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@resume_section.errors.count, "error") %> prohibited this resume_section from being
-            saved:</h2>
+<%= render partial: "shared/admin_form_errors", locals: { :entry_errors => @resume_section.errors } %>
 
-          <ul>
-            <% @resume_section.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+</ul>
+
+<%= form_for(@resume_section, :url => url_for([:admin, @resume_section]), :html => { :class => 'admin' }) do |f| %>
+    <div class="row admin-row">
+      <div class="col-md-9">
+        <div class="tab-content admin-tab-content">
+          <div class="tab-pane active" id="general">
+            <div class="field">
+              <%= f.label :title %>
+              <%= f.text_field :title %>
+            </div>
+          </div>
         </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :title %>
-      <br>
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-      <%= f.label 'Sort Order' %><br>
-      <%= f.number_field :sortOrder %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
+      </div>
+      <div class="col-md-3">
+        <%= f.submit :class => 'btn btn-block btn-success btn-lg' %>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= f.label 'Sort Order' %>
+            <%= f.number_field :sortOrder, :value => @resume_section.sortOrder.blank? ? ResumeSection.count + 1 : @resume_section.sortOrder %>
+          </li>
+          <li class="list-group-item">
+            <%= f.label 'Created' %>
+            <%= @resume_section.created_at %>
+          </li>
+          <li class="list-group-item">
+            <%= f.label 'Last Updated' %>
+            <%= @resume_section.updated_at %>
+          </li>
+        </ul>
+      </div>
     </div>
 <% end %>

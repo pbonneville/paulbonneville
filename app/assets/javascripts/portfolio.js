@@ -12,10 +12,10 @@ $(document).ready(function(){
     window.setTimeout(removeAlert,5000);
 
     $('.admin_tr').mouseover(function () {
-        $(this).css('background-color', '#f5f5f5');
+        $(this).addClass('highlight');
     });
     $('.admin_tr').mouseleave(function () {
-        $(this).css('background-color', '');
+        $(this).removeClass('highlight');
     });
 
     $('tr[data-link]').click(function() {

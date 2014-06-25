@@ -1,20 +1,8 @@
-<%= render partial: "shared/admin_header", locals: { :title => admin_title_listing(controller),
-                                                     :links => [{ :title => admin_label_new_entry(controller),
-                                                                  :path => new_user_path }] } %>
-<div class="row" style="margin-bottom: 20px;">
-  <div class="col-md-3 tk-myriad-pro">
+<%= render partial: "shared/admin_header_index", locals: { :link_path => new_user_path } %>
+<div class="row admin-row">
+  <div class="col-md-12">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Filters</h3>
-      </div>
-      <div class="panel-body">
-        Panel content
-      </div>
-    </div>
-  </div>
-  <div class="col-md-9 tk-myriad-pro">
-    <div class="panel panel-default">
-      <table>
+      <table class="admin">
         <thead>
         <tr>
           <th>Email</th>
@@ -28,15 +16,17 @@
               <td><%= user.email %></td>
               <td><%= user.approved %></td>
               <td>
-                <div style="float: right">
+                <div class="index-actions">
                   <%= link_to t(:edit), edit_user_path(user), :class => 'btn btn-primary btn-xs' %>
                   <%= link_to t(:review), user_path(user), :class => 'btn btn-primary btn-xs' %>
                   <%= link_to t(:delete), user_path(user), method: :delete, data: { confirm: t(:are_you_sure) }, :class => 'btn btn-danger btn-xs' %>
                 </div>
+              </td>
             </tr>
         <% end %>
         </tbody>
       </table>
+      <%= render partial: "shared/admin_index_table_panel_footer", locals: { :entry_objects => @users } %>
     </div>
   </div>
 </div>

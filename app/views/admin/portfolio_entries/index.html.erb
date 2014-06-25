@@ -1,19 +1,8 @@
-<%= render partial: "shared/admin_header", locals: { :title => admin_title_listing(controller),
-                                                     :links => [{ :title => admin_label_new_entry(controller), :path => new_admin_portfolio_entry_path }] } %>
-<div class="row" style="margin-bottom: 20px;">
-  <div class="col-md-3 tk-myriad-pro">
+<%= render partial: "shared/admin_header_index", locals: { :model => @portfolio_entries.first } %>
+<div class="row">
+  <div class="col-md-12">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Filters</h3>
-      </div>
-      <div class="panel-body">
-        Panel content
-      </div>
-    </div>
-  </div>
-  <div class="col-md-9 tk-myriad-pro">
-    <div class="panel panel-default">
-      <table>
+      <table class="admin">
         <thead>
         <tr>
           <th>Title</th>
@@ -31,7 +20,7 @@
                 <% end %></td>
               <td><%= portfolio_entry.role %></td>
               <td>
-                <div style="float: right">
+                <div class="index-actions">
                   <%= link_to t(:edit), edit_admin_portfolio_entry_path(portfolio_entry), :class => 'btn btn-primary btn-xs' %>
                   <%= link_to t(:review), admin_portfolio_entry_path(portfolio_entry), :class => 'btn btn-primary btn-xs' %>
                   <%= link_to t(:delete), admin_portfolio_entry_path(portfolio_entry), method: :delete, data: { confirm: t(:are_you_sure) }, :class => 'btn btn-danger btn-xs' %>
@@ -41,6 +30,8 @@
         <% end %>
         </tbody>
       </table>
+      <%= render partial: "shared/admin_index_table_panel_footer", locals: { :entry_objects => @portfolio_entries } %>
     </div>
+    <div class="pagination-controls"><%= will_paginate(@portfolio_entries) %></div>
   </div>
 </div>

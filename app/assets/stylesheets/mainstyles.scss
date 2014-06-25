@@ -5,6 +5,16 @@ $navbar-inverse-link-color: #b9dbfe;
 //@import "bootstrap/theme";
 @import "font-awesome";
 
+@mixin form-text-field() {
+  width: 100%;
+  padding: 6px;
+  font-size: 16px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
 /*******************************************/
 /* BOOTSTRAP OVERRIDES */
 /*******************************************/
@@ -37,16 +47,13 @@ $navbar-inverse-link-color: #b9dbfe;
   padding: 20px 0 20px 0;
 }
 
-.affix {
-  position: fixed;
+#notice {
+  margin-bottom: 20px;
 }
 
-.affix-top {
-  position: static;
-}
-
-.affix-bottom {
-
+.label {
+  padding: 5px 5px 3px 5px !important;
+  margin: 1px !important;
 }
 
 /*******************************************/
@@ -63,6 +70,7 @@ body {
   padding-top: 50px;
   padding-bottom: 20px;
   margin-bottom: 60px;
+  font-family: "myriad pro";
 }
 
 p {
@@ -71,33 +79,14 @@ p {
 
 ul li {
   font-size: 16px;
-  font-family: "myriad pro";
 }
 
 i {
   padding: 5px;
 }
 
-table {
-  width: 100%;
-  font-size: 16px;
-  font-family: "myriad pro";
-  padding: 4px;
-}
-
-table th {
-  padding: 3px 2px 0 9px;
-  font-weight: normal;
-  font-size: 12px;
-  color: #999;
-  background-color: #f5f5f5;
-}
-
-table td {
-  padding: 5px 6px 5px 9px;
-  font-size: 16px;
-  border-top: 1px solid #ddd;
-  color: #444;
+h1,h2,h3,h4,h5 {
+  font-family: 'adelle';
 }
 
 textarea {
@@ -119,13 +108,15 @@ select {
 }
 
 input[type=text] {
-  width: 100%;
-  padding: 6px;
-  font-size: 16px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  @include form-text-field()
+}
+
+input[type=email] {
+  @include form-text-field()
+}
+
+input[type=password] {
+  @include form-text-field()
 }
 
 input[type=number] {
@@ -146,7 +137,7 @@ input[type=submit] {
 }
 
 label {
-  font-size:12px;
+  font-size: 12px;
   font-weight: normal;
   color: #666;
   display: block;
@@ -155,17 +146,18 @@ label {
   font-family: "myriad pro";
 }
 
+.sublabel {
+  font-size: 10px;
+  color: #666;
+  font-style: italic;
+}
+
 /*******************************************/
 /* CUSTOM CLASSES */
 /*******************************************/
 
-// This is a Rails scaffold class
-.actions {
-
-}
-
 .tk-font-brand {
-  font-family: "adelle",serif;
+  font-family: "adelle", serif;
   font-style: normal !important;
   font-weight: 400 !important;
 }
@@ -190,8 +182,44 @@ label {
   height: auto;
 }
 
-.field {
-  padding-bottom: 8px;
+.blog-entry-container {
+  margin-bottom: 30px;
+  p {
+    margin: 15px 0 20px 0;
+  }
+}
+
+.blog-index-title {
+  font-family: 'adelle';
+  font-size: 22px;
+  font-weight: bold;
+  color: #444;
+}
+
+.blog-index-excerpt {
+  font-family: 'adelle';
+  font-size: 18px;
+  color: #666;
+}
+
+.blog-index-publish-date {
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  margin: 10px 0 20px 0;
+}
+
+.blog-excerpt {
+  font-family: 'adelle';
+  font-size: 28px;
+  line-height: 30px;
+  color: #333;
+}
+.blog-publish-date {
+  font-size: 16px;
+  margin: 15px 0 25px 0;
+  color: #b5b5b5;
+  text-transform: uppercase;
 }
 
 /*flash*/

@@ -6,6 +6,9 @@ gem 'unicorn'
 # Keeps local environment and setting variable in application.yml
 gem 'figaro'
 
+# Pagination
+gem 'will_paginate', '~> 3.0.5'
+
 # Markdown parser and editor
 gem 'redcarpet'
 gem 'pagedown-bootstrap-rails'

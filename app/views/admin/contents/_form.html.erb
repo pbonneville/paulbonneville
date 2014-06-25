@@ -1,25 +1,38 @@
+<%= render partial: "shared/admin_form_errors", locals: { :entry_errors => @content.errors } %>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+</ul>
+
 <%= form_for(@content, :url => url_for([:admin, @content])) do |f| %>
-    <% if @content.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@content.errors.count, "error") %> prohibited this portfolio_entry from being saved:</h2>
-          <ul>
-            <% @content.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
+    <div class="row admin-row">
+      <div class="col-md-9">
+        <div class="tab-content admin-tab-content">
+          <div class="tab-pane active" id="general">
+            <div class="field">
+              <%= f.label :title %>
+              <%= f.text_field :title %>
+            </div>
+            <div class="field">
+              <%= f.label :content %>
+              <%= render partial: "shared/admin_form_markup_field", locals: { :field_variable => f, :markup_field => :content } %>
+            </div>
+          </div>
         </div>
-    <% end %>
-    <div class="field">
-      <%= f.label :title %>
-      <br>
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-      <%= f.label :content %>
-      <br>
-      <%= f.text_area :content %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
+      </div>
+      <div class="col-md-3 tk-myriad-pro">
+        <%= f.submit :class => 'btn btn-block btn-success btn-lg' %>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= f.label 'Created' %>
+            <%= @content.created_at %>
+          </li>
+          <li class="list-group-item">
+            <%= f.label 'Last Updated' %>
+            <%= @content.updated_at %>
+          </li>
+        </ul>
+      </div>
     </div>
 <% end %>

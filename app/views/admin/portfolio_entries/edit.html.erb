@@ -1,5 +1,2 @@
-<%= render partial: "shared/admin_header", locals: {:title => admin_title_editing(controller),
-                                                    :links => [{:title => t(:list), :path => admin_portfolio_entries_path},
-                                                               {:title => t(:review), :path => admin_portfolio_entry_path(@portfolio_entry)},
-                                                               {:title => admin_label_new_entry(controller), :path => new_admin_portfolio_entry_path}]} %>
+<%= render partial: "shared/admin_header_edit",  :locals => {:model => @portfolio_entry} %>
 <%= render 'form' %>

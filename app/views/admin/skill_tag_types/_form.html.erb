@@ -1,27 +1,38 @@
-<%= form_for(@skill_tag_type, :url => url_for([:admin, @skill_tag_type])) do |f| %>
-    <% if @skill_tag_type.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@skill_tag_type.errors.count, "error") %> prohibited this skill_tag_type from being
-            saved:</h2>
+<%= render partial: "shared/admin_form_errors", locals: { :entry_errors => @skill_tag_type.errors } %>
 
-          <ul>
-            <% @skill_tag_type.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+</ul>
+
+<%= form_for(@skill_tag_type, :url => url_for([:admin, @skill_tag_type]), :html => { :class => 'admin' }) do |f| %>
+    <div class="row admin-row">
+      <div class="col-md-9">
+        <div class="tab-content admin-tab-content" >
+          <div class="tab-pane active" id="general">
+            <div class="field">
+              <%= f.label 'Tag type' %>
+              <%= f.text_field :tagType %>
+            </div>
+          </div>
         </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label 'Tag type' %>
-      <br>
-      <%= f.text_field :tagType %>
-    </div>
-    <div class="field">
-      <%= f.label 'Sort Order' %><br>
-      <%= f.number_field :sortOrder %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
+      </div>
+      <div class="col-md-3">
+        <%= f.submit :class => 'btn btn-block btn-success btn-lg' %>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= f.label 'Sort Order' %>
+            <%= f.number_field :sortOrder, :value => @skill_tag_type.sortOrder.blank? ? SkillTagType.count + 1 : @skill_tag_type.sortOrder %>
+          </li>
+          <li class="list-group-item">
+            <%= f.label 'Created' %>
+            <%= @skill_tag_type.created_at %>
+          </li>
+          <li class="list-group-item">
+            <%= f.label 'Last Updated' %>
+            <%= @skill_tag_type.updated_at %>
+          </li>
+        </ul>
+      </div>
     </div>
 <% end %>

@@ -1,0 +1,35 @@
+<%= render partial: "shared/admin_header_index", locals: { :link_path => new_admin_blog_entry_path } %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <table class="admin">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Publish</th>
+          <th>Publish at</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @admin_blog_entries.each do |admin_blog_entry| %>
+            <tr class="admin_tr" data-link="<%= edit_admin_blog_entry_path(admin_blog_entry) %>">
+              <td><%= admin_blog_entry.title %></td>
+              <td><%= admin_blog_entry.publish %></td>
+              <td><%= admin_blog_entry.publish_at %></td>
+              <td>
+                <div class="index-actions">
+                  <%= link_to t(:edit), edit_admin_blog_entry_path(admin_blog_entry), :class => 'btn btn-primary btn-xs' %>
+                  <%= link_to t(:review), admin_blog_entry_path(admin_blog_entry), :class => 'btn btn-primary btn-xs' %>
+                  <%= link_to t(:delete), admin_blog_entry_path(admin_blog_entry), method: :delete, data: { confirm: t(:are_you_sure) }, :class => 'btn btn-danger btn-xs' %>
+                </div>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= render partial: "shared/admin_index_table_panel_footer", locals: { :entry_objects => @admin_blog_entries } %>
+    </div>
+    <div class="pagination-controls"><%= will_paginate(@admin_blog_entries) %></div>
+  </div>
+</div>

@@ -1,38 +1,37 @@
-<p>
-  <strong>Section:</strong>
-  <% if defined? @resume_entry.resume_section.title %><%= @resume_entry.resume_section.title %><% end %>
-</p>
-<p>
-  <strong>Title:</strong>
-  <%= @resume_entry.title %>
-</p>
-<p>
-  <strong>Organization:</strong>
-  <% if @resume_entry.organizationURL.blank? %>
-      <%= @resume_entry.organization %>
-  <% else %>
-      <%= link_to @resume_entry.organization, @resume_entry.organizationURL, :target => '_blank' %>
-  <% end %>
-</p>
-<p>
-  <strong>Location:</strong>
-  <%= @resume_entry.location %>
-</p>
-<p>
-  <strong>Description:</strong><br/>
-  <%= markdown(@resume_entry.description) %>
-</p>
-<p>
-  <strong>Tags:</strong><br/>
-  <% @resume_entry_skill_tags.each do |i| %>
-      <%= i.tag %>
-      <% if i != @resume_entry_skill_tags.last %>,
+<%= render partial: "shared/admin_header_show", locals: { :model => @resume_entry} %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <label>Section</label>
+    <div><% if defined? @resume_entry.resume_section.title %><%= @resume_entry.resume_section.title %><% end %></div>
+  </li>
+  <li class="list-group-item">
+    <label>Title</label>
+    <div><%= @resume_entry.title %></div>
+  </li>
+  <li class="list-group-item">
+    <label>Organization</label>
+    <div>
+      <% if @resume_entry.organizationURL.blank? %>
+          <%= @resume_entry.organization %>
+      <% else %>
+          <%= link_to @resume_entry.organization, @resume_entry.organizationURL, :target => '_blank' %>
       <% end %>
-  <% end %>
-</p>
-<p>
-  <strong>Sort Order:</strong>
-  <%= @resume_entry.sortOrder %>
-</p>
-<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Edit', :path => edit_admin_resume_entry_path(@resume_entry)},
-                                                                     {:title => 'Back', :path => admin_resume_entries_path}]} %>
+    </div>
+  </li>
+  <li class="list-group-item">
+    <label>Location</label>
+    <div><%= @resume_entry.location %></div>
+  </li>
+  <li class="list-group-item">
+    <label>Description</label>
+    <div><%= markdown(@resume_entry.description) %></div>
+  </li>
+  <li class="list-group-item">
+    <label>Tags</label>
+    <div><% @resume_entry_skill_tags.each do |i| %><%= i.tag %><% if i != @resume_entry_skill_tags.last %>, <% end %><% end %></div>
+  </li>
+  <li class="list-group-item">
+    <label>Sort Order</label>
+    <div><%= @resume_entry.sortOrder %></div>
+  </li>
+</ul>

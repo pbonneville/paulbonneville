@@ -1,10 +1,11 @@
-<p>
-  <strong>Title:</strong>
-  <%= @content.title %>
-</p>
-<p>
-  <strong>Content:</strong>
-  <%= markdown(@content.content) %>
-</p>
-<%= render partial: "shared/admin_bottom_links", locals: {:links => [{:title => 'Edit', :path => edit_admin_content_path(@content)},
-                                                                     {:title => 'Back', :path => admin_contents_path}] } %>
+<%= render partial: "shared/admin_header_show", locals: { :model => @content} %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <label>Title</label>
+    <div><%= @content.title %></div>
+  </li>
+  <li class="list-group-item">
+    <label>Content</label>
+    <div><%= markdown(@content.content) %></div>
+  </li>
+</ul>

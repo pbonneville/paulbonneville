@@ -1,0 +1,23 @@
+<%= render partial: "shared/admin_header_show", locals: { :edit_link_path => edit_polymorphic_path([@parent, @admin_blog_entry]) } %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <label>Title</label>
+    <div><%= @admin_blog_entry.title %></div>
+  </li>
+  <li class="list-group-item">
+    <label>Excerpt</label>
+    <div><%= @admin_blog_entry.excerpt %></div>
+  </li>
+  <li class="list-group-item">
+    <label>Body</label>
+    <div><%= markdown(@admin_blog_entry.body) %></div>
+  </li>
+  <li class="list-group-item">
+    <label>Publish Date</label>
+    <div><%= @admin_blog_entry.publish_at %></div>
+  </li>
+  <li class="list-group-item">
+    <label>Publish?</label>
+    <div><%= @admin_blog_entry.publish %></div>
+  </li>
+</ul>
