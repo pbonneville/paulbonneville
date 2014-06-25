@@ -1,13 +1,12 @@
 <div id="footer">
   <div class="container">
     <div style="float: right;">
-      <% if !user_signed_in? %><%= link_to '[Sign In]', new_user_session_path, :style => 'margin-right: 15px;' %><% end %>
       <a href="http://www.linkedin.com/in/paulbonneville/" target="_blank"><i class="fa fa-linkedin-square fa-lg"></i></a>
       <a href="https://twitter.com/paulbonneville" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
       <a href="https://www.facebook.com/paul.r.bonneville" target="_blank"><i class="fa fa-facebook-square fa-lg"></i></a>
       <a href="https://github.com/pbonneville" target="_blank"><i class="fa fa-github fa-lg"></i></a>
       <a href="http://stackoverflow.com/users/1134576/paul-bonneville" target="_blank"><i class="fa fa-stack-overflow fa-lg"></i></a>
     </div>
-    <p class="tk-adelle" style="color: #cccccc">&copy; <%= Time.now.year %> Paul Bonneville</p>
+    <p class="copyright">&copy; <%= Time.now.year %> Paul Bonneville</p>
   </div>
 </div>

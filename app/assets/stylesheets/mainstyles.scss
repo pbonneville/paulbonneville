@@ -1,5 +1,6 @@
 $navbar-inverse-bg: #002e5d;
 $navbar-inverse-link-color: #b9dbfe;
+$side-title-color: #777;
 
 @import "bootstrap";
 //@import "bootstrap/theme";
@@ -163,6 +164,13 @@ label {
   font-weight: 400 !important;
 }
 
+.side-section-title {
+  font-family: 'adelle';
+  font-size: 22px;
+  font-weight: bold;
+  color: $side-title-color;
+}
+
 .resume-entry-container {
   font-family: 'adelle';
   margin-bottom: 16px;
@@ -183,7 +191,7 @@ label {
 .resume-entry-timeframe {
   font-family: 'myriad pro';
   text-transform: uppercase;
-  color: #666;
+  color: #333;
   font-size: 12px;
 }
 
@@ -277,6 +285,21 @@ label {
   text-transform: capitalize;
 }
 
+.portfolio-title-link {
+  font-family: 'adelle';
+  margin: 0 auto;
+  width: 310px;
+  padding-left: 10px;
+  font-weight:bold;
+  color: #fff;
+  margin-top: -30px;
+  pointer-events: none;
+}
+
+.anchor-link {
+
+}
+
 /*flash*/
 
 .alert-error {
@@ -305,6 +328,11 @@ label {
   border-color: #d6e9c6;
   color: #468847;
   text-align: left;
+}
+
+.copyright {
+  font-family: 'adelle';
+  color: #ccc;
 }
 
 

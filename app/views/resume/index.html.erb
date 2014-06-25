@@ -12,7 +12,7 @@
   <% @sections.order(:sortOrder).each do |section| %>
       <div class="row">
         <div class="col-md-2">
-          <p class="tk-adelle" style="font-size: 22px"><b><%= section.title %></b></p>
+          <p class="side-section-title"><%= section.title %></p>
         </div>
         <div class="col-md-10">
           <% section.resume_entries.order(:sortOrder).each do |entry| %>
