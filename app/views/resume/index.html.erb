@@ -4,7 +4,7 @@
   <!-- Example row of columns -->
   <div class="row">
     <div class="col-md-12">
-      <%= render partial: "shared/header", locals: {:title => 'Resume', :subtitle => "The things I've done"} %>
+      <%= render partial: "shared/header", locals: { :title => 'Resume', :subtitle => "The things I've done" } %>
       <%= markdown(Content.find_by_title('Resume').content) %>
       <hr>
     </div>
@@ -17,28 +17,23 @@
         <div class="col-md-10">
           <% section.resume_entries.order(:sortOrder).each do |entry| %>
               <div>
-                <h4>
-                  <strong>
-                    <span class="cleanBreakBlock"><%= entry.title %>,</span>
-                    <% if !entry.organizationURL.blank? %>
-                        <em><a href="http://www.inventivhealth.com" target="_blank" class="cleanBreakBlock"><%= entry.organization %></a></em>
-                    <% else %>
-                        <span class="cleanBreakBlock"><%= entry.organization %></span>
-                    <% end %>
-                  </strong>
-                  <span class="cleanBreakBlock">&mdash; <%= entry.timeframe %></span>
-
-                  <div>
-                    <small><%= raw entry.location %></small>
-                  </div>
-                </h4>
+                <div class="resume-entry-container">
+                  <div class="resume-entry-timeframe"><%= entry.timeframe %></div>
+                  <span class="resume-entry-title cleanBreakBlock"><%= entry.title %>,</span>
+                  <% if !entry.organizationURL.blank? %>
+                      <em><a href="http://www.inventivhealth.com" target="_blank" class="resume-entry-organization cleanBreakBlock"><%= entry.organization %></a></em>
+                  <% else %>
+                      <span class="resume-entry-organization cleanBreakBlock"><%= entry.organization %></span>
+                  <% end %>
+                  <div class="resume-entry-location"><%= raw entry.location %></small></div>
+                </div>
                 <div><%= markdown(entry.description) %></div>
                 <% if !entry.skill_tags.empty? %>
-                <div class="well">
-                  <% entry.skill_tags.order("skill_tag_type_id ASC, tag ASC").each do |tag| %>
-                      <span class="label <%= tag.skill_tag_type.tagType == ('Technology') ? 'label-success' : 'label-primary' %>"><%= tag.tag %></span>
-                  <% end %>
-                </div>
+                    <div class="well">
+                      <% entry.skill_tags.order("skill_tag_type_id ASC, tag ASC").each do |tag| %>
+                          <span class="label <%= tag.skill_tag_type.tagType == ('Technology') ? 'label-success' : 'label-primary' %>"><%= tag.tag %></span>
+                      <% end %>
+                    </div>
                 <% end %>
               </div>
               <hr>
@@ -46,4 +41,4 @@
         </div>
       </div>
   <% end %>
-</div> <!-- /container -->
+</div>

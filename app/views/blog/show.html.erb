@@ -8,7 +8,7 @@
       <hr>
       <div class="blog-publish-date"><span class="blog-by-line">By PAUL BONNEVILLE &mdash; </span><strong><%= @entry.publish_at.to_s(:blog_post) %></strong></div>
       <div class="blog-entry-container">
-        <p><%= markdown(@entry.body) %></p>
+        <%= markdown(@entry.body) %>
         <%= link_to raw('<span class="glyphicon glyphicon-chevron-left" style="font-size: 12px"></span> Back to Blog Entries'), blog_path, :class => 'btn btn-default' %>
       </div>
     </div>

@@ -163,11 +163,40 @@ label {
   font-weight: 400 !important;
 }
 
+.resume-entry-container {
+  font-family: 'adelle';
+  margin-bottom: 16px;
+}
+
+.resume-entry-title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.resume-entry-organization {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.resume-entry-timeframe {
+  font-family: 'myriad pro';
+  text-transform: uppercase;
+  color: #666;
+  font-size: 12px;
+}
+
+.resume-entry-location {
+  font-size: 12px;
+  color: #999;
+}
+
 .form_checkbox_container {
   font-weight: normal;
   width: 25%;
   display: inline-block;
-  pagging: 5px;
+  padding: 5px;
 }
 
 .container_padding_top {

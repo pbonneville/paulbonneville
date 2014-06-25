@@ -26,9 +26,9 @@ $(document).ready(function(){
         window.location = $(this).data("link")
     })
 
-    $('a').click(function(){
+    $('a.anchor-link').click(function(){
         $('html, body').animate({
-            scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top - 70
+            scrollTop: $('[id="' + $.attr(this, 'href').substr(1) + '"]').offset().top - 70
         }, 500);
         return false;
     });
