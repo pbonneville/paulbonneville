@@ -41,6 +41,10 @@
             <%= f.check_box :publish %> Publish this entry?
           </li>
           <li class="list-group-item">
+            <%= f.label 'Feature' %>
+            <%= f.check_box :featured %> Feature this entry?
+          </li>
+          <li class="list-group-item">
             <%= f.label 'Created' %>
             <%= @admin_blog_entry.created_at %>
           </li>

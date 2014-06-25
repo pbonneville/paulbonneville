@@ -26,6 +26,16 @@ class PaginationLinkRenderer < WillPaginate::ViewHelpers::LinkRenderer
 		end
 	end
 
+	def previous_page
+		num = @collection.current_page > 1 && @collection.current_page - 1
+		previous_or_next_page(num, '<span class="glyphicon glyphicon-chevron-left" style="font-size: 12px"></span>', 'previous_page')
+	end
+
+	def next_page
+		num = @collection.current_page < total_pages && @collection.current_page + 1
+		previous_or_next_page(num, '<span class="glyphicon glyphicon-chevron-right" style="font-size: 12px"></span>', 'next_page')
+	end
+
 	def html_container(html)
 		tag(:ul, html, container_attributes)
 	end

@@ -16,9 +16,7 @@
         <%= render partial: "shared/navbar_link", locals: {:title => 'Resume', :path => resume_path} %>
         <%= render partial: "shared/navbar_link", locals: {:title => 'Blog', :path => blog_path} %>
         <%= render partial: "shared/navbar_link", locals: {:title => 'Contact', :path => contact_path} %>
-        <% if !user_signed_in? %>
-            <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <% else %>
+        <% if user_signed_in? %>
             <li><%= link_to 'My Account', edit_user_registration_path %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :style => 'color:#f5f5f5' %></li>
             <li><%= link_to '', users_path, :class => 'glyphicon glyphicon-wrench' %></li>

@@ -92,6 +92,6 @@ class Admin::BlogEntriesController < ApplicationController
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def admin_blog_entry_params
-		params.require(:admin_blog_entry).permit(:title, :excerpt, :body, :publish, :publish_at)
+		params.require(:admin_blog_entry).permit(:title, :excerpt, :body, :publish, :publish_at, :featured)
 	end
 end

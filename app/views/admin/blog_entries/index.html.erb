@@ -7,6 +7,7 @@
         <tr>
           <th>Title</th>
           <th>Publish</th>
+          <th>Feature</th>
           <th>Publish at</th>
           <th></th>
         </tr>
@@ -16,6 +17,7 @@
             <tr class="admin_tr" data-link="<%= edit_admin_blog_entry_path(admin_blog_entry) %>">
               <td><%= admin_blog_entry.title %></td>
               <td><%= admin_blog_entry.publish %></td>
+              <td><%= admin_blog_entry.featured %></td>
               <td><%= admin_blog_entry.publish_at %></td>
               <td>
                 <div class="index-actions">

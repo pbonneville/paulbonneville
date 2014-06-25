@@ -3,11 +3,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-      <%= render partial: "shared/header", locals: { :title => @entry.title } %>
+      <div class="blog-title"><%= @entry.title %></div>
       <div class="blog-excerpt"><%= @entry.excerpt %></div>
-      <div class="blog-publish-date"><%= @entry.publish_at %></div>
-      <p><%= markdown(@entry.body) %></p>
-      <%= link_to 'Back', blog_path, :class => 'btn btn-default' %>
+      <hr>
+      <div class="blog-publish-date"><span class="blog-by-line">By PAUL BONNEVILLE &mdash; </span><strong><%= @entry.publish_at.to_s(:blog_post) %></strong></div>
+      <div class="blog-entry-container">
+        <p><%= markdown(@entry.body) %></p>
+        <%= link_to raw('<span class="glyphicon glyphicon-chevron-left" style="font-size: 12px"></span> Back to Blog Entries'), blog_path, :class => 'btn btn-default' %>
+      </div>
     </div>
     <div class="col-md-3">
     </div>

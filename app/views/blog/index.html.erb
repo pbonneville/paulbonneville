@@ -9,13 +9,14 @@
   <div class="row">
     <div class="col-md-9">
       <% @entries.each do |entry| %>
-          <div class="blog-entry-container">
+          <div class="blog-entry-container" data-link="">
             <div class="blog-index-title"><%= entry.title %></div>
             <div class="blog-index-excerpt"><%= entry.excerpt %></div>
-            <div class="blog-index-publish-date"><%= entry.publish_at %></div>
-            <%= link_to raw('Read more &raquo;'), {:controller => 'blog', :action => 'show', :id => entry}, :class => 'btn btn-default' %>
+            <div class="blog-index-publish-date"><%= entry.publish_at.to_s(:blog_post) %></div>
+            <%= link_to raw('Read More <span class="glyphicon glyphicon-chevron-right" style="font-size: 12px"></span>'), {:controller => 'blog', :action => 'show', :id => entry}, :class => 'btn btn-default ' %>
           </div>
       <% end %>
+      <div><%= will_paginate(@entries) %></div>
     </div>
     <div class="col-md-3">
 
