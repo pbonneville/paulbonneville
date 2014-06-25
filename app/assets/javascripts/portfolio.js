@@ -22,6 +22,10 @@ $(document).ready(function(){
         window.location = $(this).data("link")
     })
 
+    $('div[data-link]').click(function() {
+        window.location = $(this).data("link")
+    })
+
     $('a').click(function(){
         $('html, body').animate({
             scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top - 70
