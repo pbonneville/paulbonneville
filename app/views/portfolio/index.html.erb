@@ -21,9 +21,9 @@
                   <% if i % 3 == 0 && i > 0 %></div>
                   <div class="row">
                   <% end %>
-                  <div class="col-md-4" style="margin: 0; padding: 0">
+                  <div class="col-md-4" style="margin: 0; padding: 0;">
                     <div class="thumbnail">
-                      <a style="-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;" href="#project<%= i %><%= u platform.title %>" id="thumb<%= i %><%= u platform.title %>" class="anchor-link"><%= image_tag entry.project_image.url(:thumb) %></a>
+                      <a href="#project<%= i %><%= u platform.title %>" id="thumb<%= i %><%= u platform.title %>" class="anchor-link"><%= image_tag entry.project_image.url(:thumb) %></a>
                       <div class="portfolio-title-link"><%= entry.title %></div>
                     </div>
                   </div>
