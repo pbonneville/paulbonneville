@@ -11,10 +11,10 @@
   </div>
   <% @sections.order(:sortOrder).each do |section| %>
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <p class="side-section-title"><%= section.title %></p>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
           <% section.resume_entries.order(:sortOrder).each do |entry| %>
               <div>
                 <div class="resume-entry-container">
@@ -27,7 +27,7 @@
                   <% end %>
                   <div class="resume-entry-location"><%= raw entry.location %></div>
                 </div>
-                <div><%= markdown(entry.description) %></div>
+                <div style="margin-bottom: 20px"><%= markdown(entry.description) %></div>
                 <% if !entry.skill_tags.empty? %>
                     <div class="well">
                       <% entry.skill_tags.order("skill_tag_type_id ASC, tag ASC").each do |tag| %>

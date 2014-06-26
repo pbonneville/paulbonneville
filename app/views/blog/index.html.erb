@@ -4,6 +4,8 @@
   <div class="row">
     <div class="col-md-12">
       <%= render partial: "shared/header", locals: { :title => 'Blog', :subtitle => "The things I'm thinking, professionally" } %>
+      <%= markdown(Content.find_by_title('Blog').content) %>
+      <hr>
     </div>
   </div>
   <div class="row">
