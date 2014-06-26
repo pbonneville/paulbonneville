@@ -9,6 +9,9 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-md-3">
+
+    </div>
     <div class="col-md-9">
       <% @entries.each do |entry| %>
           <div class="blog-entry-container" data-link="/blog/<%= entry.id %>">
@@ -20,9 +23,6 @@
           </div>
       <% end %>
       <div><%= will_paginate(@entries) %></div>
-    </div>
-    <div class="col-md-3">
-
     </div>
   </div>
 </div>
