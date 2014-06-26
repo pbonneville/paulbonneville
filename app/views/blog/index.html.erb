@@ -12,8 +12,8 @@
           <div class="blog-entry-container" data-link="/blog/<%= entry.id %>">
             <div class="blog-index-title"><%= entry.title %></div>
             <div class="blog-index-excerpt"><%= entry.excerpt %></div>
-            <div class="blog-index-publish-date"><%= entry.publish_at.to_s(:blog_post) %></div>
             <%= link_to raw('Read More <span class="glyphicon glyphicon-chevron-right" style="font-size: 12px"></span>'), {:controller => 'blog', :action => 'show', :id => entry}, :class => 'btn btn-default ' %>
+            <hr>
           </div>
       <% end %>
       <div><%= will_paginate(@entries) %></div>
