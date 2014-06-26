@@ -1,15 +1,18 @@
-<% if defined? entry_errors %>
-    <% if entry_errors.any? %>
-        <div id="notice" class="alert alert-danger fade in" data-dismiss="alert">
-          <div class="container">
-            <h4><i class="glyphicon glyphicon-remove"></i> <%= pluralize(entry_errors.count, "error") %> prohibited this
-              entry from being saved:</h4>
-            <ul>
-              <% entry_errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-              <% end %>
-            </ul>
+<div id="alerts-and-notices">
+  <% if defined? entry_errors %>
+      <% if entry_errors.any? %>
+          <div id="notice" class="alert alert-danger fade in" data-dismiss="alert">
+            <div class="container">
+              <h4><i class="glyphicon glyphicon-remove"></i> <%= pluralize(entry_errors.count, "error") %> prohibited
+                this
+                entry from being saved:</h4>
+              <ul>
+                <% entry_errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
           </div>
-        </div>
-    <% end %>
-<% end %>
+      <% end %>
+  <% end %>
+</div>

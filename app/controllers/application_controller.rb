@@ -10,4 +10,13 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     users_path
   end
+
+  def flash_to_headers
+	  return unless request.xhr?
+	  response.headers['X-Message'] = flash[:error]  unless flash[:error].blank?
+	  response.headers['X-Message'] = flash[:notice]  unless flash[:notice].blank?
+	  response.headers['X-Message'] = flash[:alert]  unless flash[:alert].blank?
+
+	  flash.discard  # don't want the flash to appear when you reload page
+  end
 end

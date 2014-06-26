@@ -67,9 +67,11 @@ class Admin::BlogEntriesController < ApplicationController
 			if @admin_blog_entry.update(admin_blog_entry_params)
 				format.html { redirect_to :edit_admin_blog_entry, notice: 'Blog entry was successfully updated.' }
 				format.json { render :show, status: :ok, location: @admin_blog_entry }
+				#format.js { render :nothing => true }
 			else
 				format.html { render :edit }
 				format.json { render json: @admin_blog_entry.errors, status: :unprocessable_entity }
+				#format.js { render :nothing => true }
 			end
 		end
 	end

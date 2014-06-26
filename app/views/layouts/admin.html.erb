@@ -26,7 +26,41 @@
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
-<body>
+<body onload="set_up_timer();">
+
+<div id="inactivity_warning" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Session Ending</h4>
+      </div>
+      <div class="modal-body">
+        <p>Your session will be ending in 5 minutes due to inactivity. Please be sure to save your work before proceeding.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn btn-primary inactivity_ok" data-dismiss="modal" aria-hidden="true">OK</a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal hide fade" data-backdrop="static" style="top:30%">
+  <div class="modal-header">
+    <button type="button" class="close inactivity_ok" data-dismiss="modal" aria-hidden="true">&times;</button>
+  </div>
+  <div class="modal-body">
+    <div class="row-fluid">
+      <div id="custom_alert_message" class="span12">
+        You will be logged out in 5 minutes due to inactivity on the server. Please save your credit application if you have not already done so.
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="javascript:void(0)" class="btn btn-primary inactivity_ok" data-dismiss="modal" aria-hidden="true">OK</a>
+    </div>
+  </div>
+</div>
 
 <%= render partial: "shared/admin_navbar" %>
 <%= render partial: 'shared/alerts_and_notices' %>
@@ -34,6 +68,9 @@
 <div class="container container_padding_top">
   <%= yield %>
 </div>
+
+<input id="user_activity" name="user_activity" type="hidden" value="active" />
+<input id="user_loged_in" name="user_loged_in" type="hidden" value="true" />
 
 </body>
 </html>

@@ -1,6 +1,5 @@
-<% if @admin_blog_entry.errors.any? %>
-    <%= render partial: "shared/admin_form_errors", locals: { :entry_errors => @admin_blog_entry.errors } %>
-<% end %>
+<%= render partial: "shared/admin_form_errors", locals: { :entry_errors => @admin_blog_entry.errors } %>
+
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
@@ -34,7 +33,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        <%= f.submit :class => 'btn btn-block btn-success btn-lg' %>
+        <%= f.submit :class => 'btn btn-block btn-success btn-lg', :data => { :disable_with => "Saving..." } %>
         <ul class="list-group">
           <li class="list-group-item">
             <%= f.label 'Publish' %>

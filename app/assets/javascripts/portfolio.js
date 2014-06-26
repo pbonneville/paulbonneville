@@ -11,13 +11,6 @@ $(document).ready(function(){
     window.setTimeout(fadeAlert,5000);
     window.setTimeout(removeAlert,5000);
 
-    $('.admin_tr').mouseover(function () {
-        $(this).addClass('highlight');
-    });
-    $('.admin_tr').mouseleave(function () {
-        $(this).removeClass('highlight');
-    });
-
     $('tr[data-link]').click(function() {
         window.location = $(this).data("link")
     })
@@ -31,5 +24,46 @@ $(document).ready(function(){
             scrollTop: $('[id="' + $.attr(this, 'href').substr(1) + '"]').offset().top - 70
         }, 500);
         return false;
+    });
+
+    $('.admin').on('ajax:before', function(event) {
+        // insert the failure message inside the "#account_settings" element
+        //$('#alerts-and-notices').append(event);
+//        alert("Before");
+    });
+    $('.admin').on('ajax:beforeSend', function(event, xhr, settings) {
+        // insert the failure message inside the "#account_settings" element
+        //$('#alerts-and-notices').append(xhr.responseText);
+//        alert("BeforeSend");
+    });
+    $('.admin').on('ajax:send', function(event, xhr) {
+        // insert the failure message inside the "#account_settings" element
+       // $('#alerts-and-notices').append(xhr.responseText);
+//        alert("Send");
+    });
+    $('.admin').on('ajax:success', function(event, data, status, xhr) {
+        // insert the failure message inside the "#account_settings" element
+        //$('#alerts-and-notices').append(event.toString());
+        alert("Success: " + xhr.responseText);
+    });
+    $('.admin').on('ajax:error', function(event, xhr, status) {
+        // insert the failure message inside the "#account_settings" element
+        //$('#alerts-and-notices').append(xhr.responseText);
+        alert("Error: " + xhr.responseText);
+    });
+    $('.admin').on('ajax:complete', function(event, status) {
+        // insert the failure message inside the "#account_settings" element
+        //$('#alerts-and-notices').append(status);
+        alert("Complete")
+    });
+    $('.admin').on('ajax:aborted:required', function(event, elements) {
+        // insert the failure message inside the "#account_settings" element
+        //$('#alerts-and-notices').append(elements);
+//        alert("Aborted:Required");
+    });
+    $('.admin').on('ajax:aborted:file', function(event, elements) {
+        // insert the failure message inside the "#account_settings" element
+        //$('#alerts-and-notices').append(elements);
+//        alert("Aborted:File");
     });
 });
