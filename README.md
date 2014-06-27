@@ -1,4 +1,4 @@
-== paulbonneville.com Source Code
+## paulbonneville.com Source Code
 
 Figured I'd open-source my site, just because. It's not pretty and there is a lot of learning going on in here (specifically with routing custom admin screens), but I wanted
 share what I've been doing. This is my first "from scratch" Rails site in a few years.
@@ -28,17 +28,17 @@ flexibility of doing everything and anything the way I wanted as opposed to havi
 There are a lot of parts and peices that would need to be seeded and configured to get the site to run. I plan on adding some details in the future but already have to move on
 to my next project.
 
-=== Some Details
+### Some Details
 
  * Ruby and Rails versions
   * Ruby 2.1.1
   * Rails 4.1.0
 
-=== Installation
+### Installation
 
 Once you run "bundle install", some of the gems that are used need to be "installed". I'll add those in here in the future...
 
-=== Deployment
+### Deployment
 
 When you install Figaro, the application.yml file is purposely excluded from the repository since that is where you store your "secrets". Technically, if you add
 the following keys to that file, with your own values, the site would run:
