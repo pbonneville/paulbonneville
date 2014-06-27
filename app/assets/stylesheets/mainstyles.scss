@@ -1,6 +1,7 @@
 $navbar-inverse-bg: #002e5d;
 $navbar-inverse-link-color: #b9dbfe;
 $side-title-color: #777;
+$heading-color: #002347;
 
 @import "bootstrap";
 //@import "bootstrap/theme";
@@ -73,6 +74,7 @@ body {
   padding-bottom: 20px;
   margin-bottom: 60px;
   font-family: "myriad pro";
+  background-image: url(/img/pw_maze_white_3.png);
 }
 
 p {
@@ -89,6 +91,7 @@ i {
 
 h1,h2,h3,h4,h5 {
   font-family: 'adelle';
+  color: $heading-color;
 }
 
 textarea {
@@ -180,6 +183,7 @@ label {
   font-weight: bold;
   font-size: 18px;
   line-height: 20px;
+  color: $heading-color;
 }
 
 .resume-entry-organization {
@@ -241,7 +245,7 @@ label {
   font-size: 32px;
   font-weight: bold;
   line-height: 35px;
-  color: #333;
+  color: $heading-color;
 }
 
 .blog-excerpt {
@@ -262,7 +266,7 @@ label {
   font-family: 'adelle';
   font-size: 22px;
   font-weight: bold;
-  color: #444;
+  color: $heading-color;
   line-height: 25px;
   margin-bottom: 5px;
 }
