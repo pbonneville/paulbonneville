@@ -17,10 +17,9 @@ The is currently a Heroku hosted site that uses:
  - My personal gmail account to send out Devise and custom contact e-mails
  - TypeKit for custom fonts, since it comes with my Adobe CC account
  - Postgres, since that is what Heroku uses and it minimizes conflicts that WILL come up if you
-   use MySQL for development. I am using the Postgres.app* locally, which is the simplest way to
+   use MySQL for development. I am using the [Postgres.app](http://postgresapp.com) locally, which is the simplest way to
    get up and running on your local machine in my opinion.
 
-[Postgres.app](http://postgresapp.com)
 
 I built a customized admin, as opposed to using something like ActiveAdmin, partially for the learning experience, but also for the
 flexibility of doing everything and anything the way I wanted as opposed to having to bend an existing codebase to my will.
