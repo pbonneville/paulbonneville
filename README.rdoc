@@ -1,7 +1,7 @@
 == paulbonneville.com Source Code
 
 Figured I'd open-source my site, just because. It's not pretty and there is a lot of learning going on in here (specifically with routing custom admin screens), but I wanted
-share what I've been doing.
+share what I've been doing. This is my first "from scratch" Rails site in a few years.
 
 The is currently a Heroku hosted site that uses:
 
@@ -23,9 +23,9 @@ to my next project.
 
 === Some Details
 
-* Ruby and Rails versions
- * Ruby 2.1.1
- * Rails 4.1.0
+ * Ruby and Rails versions
+  * Ruby 2.1.1
+  * Rails 4.1.0
 
 === Installation
 
@@ -36,12 +36,12 @@ Once you run "bundle install", some of the gems that are used need to be "instal
 When you install Figaro, the application.yml file is purposely excluded from the repository since that is where you store your "secrets". Technically, if you add
 the following keys to that file, with your own values, the site would run:
 
-DEVELOPMENT_DB_USER: root
-DEVELOPMENT_DB_PASS: your_password
-GMAIL_USER: 'your@email.com'
-GMAIL_PASSWORD: 'gmailpassword'
-S3_BUCKET_NAME: 'bucket_name'
-AWS_ACCESS_KEY_ID: 'ABCDEFG....'
-AWS_SECRET_ACCESS_KEY: 'secretaccess'
-ADMIN_EMAIL: 'your@email.com'
+ - DEVELOPMENT_DB_USER: root
+ - DEVELOPMENT_DB_PASS: your_password
+ - GMAIL_USER: 'your@email.com'
+ - GMAIL_PASSWORD: 'gmailpassword'
+ - S3_BUCKET_NAME: 'bucket_name'
+ - AWS_ACCESS_KEY_ID: 'ABCDEFG....'
+ - AWS_SECRET_ACCESS_KEY: 'secretaccess'
+ - ADMIN_EMAIL: 'your@email.com'
 
