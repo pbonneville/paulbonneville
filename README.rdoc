@@ -1,28 +1,23 @@
-== README
+## paulbonneville.com source code
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Figured I'd open-source my site, just because. It's not pretty and there is a lot of learning going on in here (specifically with routing custom admin screens), but I wanted
+share what I've been doing.
 
-Things you may want to cover:
+The is currently a Heroku hosted site that uses:
+ - Bootstrap for the HTML and CSS side of things
+ - jQuery drizzled in here in there for some smoother UX effects
+ - RedCarpet so that I can use Markdown for my contnet
+ - Pagedown-boostrap-rails so that I could have a basic markdown editor in my admin
+ - Devise for authentication
+ - Paperclip with Amazom S3 for file uploads
+ - Figaro to keep some of my private passwords and keys private
+ - Will_Paginate for pagination
 
-* Ruby version
+I built a customized admin, as opposed to using something like ActiveAdmin, partially for the learning experience, but also for the
+flexibility of doing everything and anything the way I wanted as opposed to having to bend an existing codebase to my will.
 
-* System dependencies
+== Some Details
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Ruby and Rails versions
+Ruby 2.1.1
+Rails 4.1.0
