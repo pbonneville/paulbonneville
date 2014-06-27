@@ -301,6 +301,19 @@ label {
   pointer-events: none;
 }
 
+.portfolio-project-detail {
+  position: relative;
+  width:100%;
+  overflow: hidden;
+  background-position: top center;
+  background-repeat: no-repeat;
+  color: #fff;
+
+  h3,h4 {
+    color: #fff;
+  }
+}
+
 .main-content {
   margin-bottom: 30px;
 }

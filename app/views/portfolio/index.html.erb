@@ -38,8 +38,8 @@
           <div style="background-color: <%= entry.backgroundColor %>; border-bottom: 4px solid #ffffff">
             <div class="row">
               <div class="col-md-12" id="project<%= i %><%= u platform.title %>">
-                <div style="position: relative; width:100%; overflow: hidden; background-position: top center; background-repeat: no-repeat; background-image: url(<%= entry.project_image.url(:original) %>>)">
-                  <div style="position: relative; top: 20px; left: 40px; width: 60%; color: #fff; padding-bottom: 60px;">
+                <div class="portfolio-project-detail" style="background-image: url(<%= entry.project_image.url(:original) %>>)">
+                  <div style="position: relative; top: 20px; left: 40px; width: 60%; padding-bottom: 60px;">
                     <h3 class="tk-adelle" style="font-weight:bold;"><%= entry.title %></h3>
                     <h4 class="tk-myriad-pro"><%= entry.role %></h4>
                     <div class="tk-myriad-pro" style="margin: 25px 0 25px 0"><%= markdown(entry.overview) %></div>
