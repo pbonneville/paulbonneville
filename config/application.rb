@@ -30,5 +30,10 @@ module Paulbonneville
 
 		# Load lib files
 		config.autoload_paths += %W(#{config.root}/lib)
+
+		# To handle the framed domain forwarding mask from godaddy
+		config.action_dispatch.default_headers = {
+			'X-Frame-Options' => 'ALLOWALL'
+		}
 	end
 end
