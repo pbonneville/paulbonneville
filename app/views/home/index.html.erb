@@ -18,6 +18,7 @@
   <div class="row">
     <% @entries.each do |entry| %>
         <div class="col-md-4 blog-feature-container">
+          <div class="blog-index-publish-date"><%= entry.publish_at.to_s(:blog_post) %></div>
           <div class="blog-index-title"><%= entry.title %></div>
           <p><%= entry.excerpt %></p>
           <%= link_to raw('Read More <span class="glyphicon glyphicon-chevron-right" style="font-size: 12px"></span>'), {:controller => 'blog', :action => 'show', :id => entry}, :class => 'btn btn-default' %>
