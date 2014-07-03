@@ -20,7 +20,7 @@ Rails.application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Mailer settings
-  config.action_mailer.default_url_options = { host: 'intense-lake-6711.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'paulbonneville.com' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
