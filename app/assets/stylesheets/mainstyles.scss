@@ -189,19 +189,21 @@ label {
 .resume-entry-organization {
   font-weight: bold;
   font-size: 18px;
-  line-height: 20px;
+  line-height: 18px;
 }
 
 .resume-entry-timeframe {
   font-family: "myriad-pro";
   text-transform: uppercase;
-  color: #333;
-  font-size: 12px;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
 }
 
 .resume-entry-location {
-  font-size: 12px;
-  color: #999;
+  font-size: 14px;
+  color: $heading-color;
+  font-weight: bold;
 }
 
 .form_checkbox_container {
