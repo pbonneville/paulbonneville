@@ -19,6 +19,9 @@ gem 'rails', '4.1.0'
 # Authetication
 gem 'devise'
 
+# Monitoring and whatnot
+gem 'newrelic_rpm'
+
 # Uploading files
 gem 'paperclip'
 gem 'aws-sdk'
