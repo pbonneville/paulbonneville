@@ -17,7 +17,7 @@ gem 'pagedown-bootstrap-rails'
 gem 'rails', '4.2.1'
 
 # Authetication
-gem 'devise'
+gem 'devise', '~> 3.4.0'
 
 # Monitoring and whatnot
 gem 'newrelic_rpm'
