@@ -18,7 +18,7 @@
           <% section.resume_entries.order(:sortOrder).each do |entry| %>
               <div>
                 <div class="resume-entry-container">
-                  <div class="resume-entry-timeframe"><%= entry.timeframe %></div>
+                  <div class="resume-entry-timeframe pull-right"><%= entry.timeframe %></div>
                   <span class="resume-entry-title cleanBreakBlock"><%= entry.title %>,</span>
                   <% if !entry.organizationURL.blank? %>
                       <em><a href="http://www.inventivhealth.com" target="_blank" class="resume-entry-organization cleanBreakBlock"><%= entry.organization %></a></em>
