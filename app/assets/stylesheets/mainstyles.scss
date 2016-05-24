@@ -21,6 +21,12 @@ $heading-color: #002347;
 /* BOOTSTRAP OVERRIDES */
 /*******************************************/
 
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+
 .navbar-brand {
   font-size: 26px !important;
 }
